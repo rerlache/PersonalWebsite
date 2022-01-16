@@ -1,0 +1,41 @@
+﻿@page
+@model robinerlacher.online.Pages.PhotographyModel
+@{
+    ViewData["Title"] = robinerlacher.online.Lang.TitlePhotography;
+}
+
+
+<div class="text-center" id="portfolio">
+    <h1 class="display-4">@robinerlacher.online.Lang.HeadingPhotography</h1>
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="~/assets/img/portfolio/Elsa1.JPG" title="@robinerlacher.online.Lang.PhotoTitleElsa2" target="_blank">
+                    <img class="img-fluid" src="~/assets/img/portfolio/Elsa1.JPG" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">@robinerlacher.online.Lang.PhotoProjectCat</div>
+                        <div class="project-name">@robinerlacher.online.Lang.PhotoProjectAnimal</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="~/assets/img/portfolio/Landscape1.JPG" title="@robinerlacher.online.Lang.PhotoTitleLandscape1" target="_blank">
+                    <img class="img-fluid" src="~/assets/img/portfolio/Landscape1.JPG" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">@robinerlacher.online.Lang.PhotoProjectCat</div>
+                        <div class="project-name">@robinerlacher.online.Lang.PhotoProjectLandscape</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="~/assets/img/portfolio/Elsa2.JPG" title="@robinerlacher.online.Lang.PhotoTitleElsa2" target="">
+                    <img class="img-fluid" src="~/assets/img/portfolio/Elsa2.JPG" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">@robinerlacher.online.Lang.PhotoProjectCat</div>
+                        <div class="project-name">@robinerlacher.online.Lang.PhotoProjectAnimal</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
