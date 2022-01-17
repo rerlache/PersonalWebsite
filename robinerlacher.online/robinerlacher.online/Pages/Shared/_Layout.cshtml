@@ -14,10 +14,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet" />
 </head>
 <body>
-    <header >
+    <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow fixed-top pb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Robin Erlacher</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="~/assets/img/reLogo.png" height="30" alt="Robin Erlacher" loading="lazy" />
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fas fa-bars"></span>
@@ -47,15 +49,38 @@
             </div>
         </nav>
     </header>
-        <div class="container content">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-        </div>
+    <div class="container content">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - robinerlacher.online - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    <footer class="bg-dark text-center text-white fixed-bottom" >
+        <div class="container p-3">
+            <section class="p-1">
+                <!-- Icons -->
+                <a class="btn btn-outline-light btn-floating m-1" role="button" href="https://github.com/rerlache" target="_blank" title="Github">
+                    <i class="fab fa-github-square"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" role="button" href="https://twitter.com/rerlache" target="_blank" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" role="button" href="https://www.linkedin.com/in/robin-erlacher-4ba8bb229/" target="_blank" title="Linkedin">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" role="button" href="https://www.facebook.com/rerlache/" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" role="button" href="https://www.instagram.com/re86_photo/" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" role="button" href="mailto:main@robinerlacher.online" target="_blank" title="Mail">
+                    <i class="fas fa-at"></i>
+                </a>
+            </section>
+        </div>
+        <div class="text-center p-1" style="background-color: rgba(0,0,0,0.2);">
+            &copy; 2022 - robinerlacher.online - <a class="text-white" asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 
