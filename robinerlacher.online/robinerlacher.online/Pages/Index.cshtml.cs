@@ -16,10 +16,6 @@ namespace robinerlacher.online.Pages
         {
             _logger = logger;
         }
-        public string LoadWelcomeText()
-        {
-            return String.Format(Lang.IndexWelcomeText, Environment.NewLine);
-        }
         public void OnGet()
         {
             
