@@ -121,7 +121,8 @@
     <value>Who am i?</value>
   </data>
   <data name="HeadingCoding" xml:space="preserve">
-    <value>if(mug == empty){robin.unhappy;mug.refill();}else{robin.happy}</value>
+    <value>if(mug == empty){robin.unhappy;mug.refill();}&lt;br&gt;else{robin.happy}</value>
+    <comment>use @((MarkupString)HeadingCoding) to benefit of the &lt;br&gt; tag</comment>
   </data>
   <data name="HeadingDog" xml:space="preserve">
     <value>Extraordinary Elsa of Flying Porkies</value>
@@ -137,6 +138,9 @@
   </data>
   <data name="HeadingPhotography" xml:space="preserve">
     <value>Let me show you...</value>
+  </data>
+  <data name="HeadingPrivacy" xml:space="preserve">
+    <value>Privacy Policy</value>
   </data>
   <data name="IndexWelcomeText" xml:space="preserve">
     <value>on my totally new Web presenece.&lt;br&gt;Please be aware, this Site is still under Maintenance.&lt;br&gt;I'm working hard, to get a nice Website as soon as possible!</value>
@@ -184,6 +188,10 @@
   <data name="PhotoTitleLandscape1" xml:space="preserve">
     <value>Testing the Lens Ball</value>
   </data>
+  <data name="PrivacyContent" xml:space="preserve">
+    <value>I &lt;b&gt;DO NOT&lt;/b&gt; store any of your data, period.</value>
+    <comment>use @((MarkupString)Name) to get it formated.</comment>
+  </data>
   <data name="TitleAbout" xml:space="preserve">
     <value>About me</value>
     <comment>Page Title About</comment>
@@ -211,5 +219,8 @@
   <data name="TitlePhotography" xml:space="preserve">
     <value>Photography by:</value>
     <comment>Page Title Photography</comment>
+  </data>
+  <data name="TitlePrivacy" xml:space="preserve">
+    <value>Privacy Policy from</value>
   </data>
 </root>

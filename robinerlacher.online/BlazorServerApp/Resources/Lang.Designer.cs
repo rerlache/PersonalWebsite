@@ -70,7 +70,7 @@ namespace BlazorServerApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to if(mug == empty){robin.unhappy;mug.refill();}else{robin.happy}.
+        ///   Looks up a localized string similar to if(mug == empty){robin.unhappy;mug.refill();}&lt;br&gt;else{robin.happy}.
         /// </summary>
         public static string HeadingCoding {
             get {
@@ -120,6 +120,15 @@ namespace BlazorServerApp.Resources {
         public static string HeadingPhotography {
             get {
                 return ResourceManager.GetString("HeadingPhotography", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Privacy Policy.
+        /// </summary>
+        public static string HeadingPrivacy {
+            get {
+                return ResourceManager.GetString("HeadingPrivacy", resourceCulture);
             }
         }
         
@@ -241,6 +250,15 @@ namespace BlazorServerApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to I &lt;b&gt;DO NOT&lt;/b&gt; store any of your data, period..
+        /// </summary>
+        public static string PrivacyContent {
+            get {
+                return ResourceManager.GetString("PrivacyContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About me.
         /// </summary>
         public static string TitleAbout {
@@ -300,6 +318,15 @@ namespace BlazorServerApp.Resources {
         public static string TitlePhotography {
             get {
                 return ResourceManager.GetString("TitlePhotography", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Privacy Policy from.
+        /// </summary>
+        public static string TitlePrivacy {
+            get {
+                return ResourceManager.GetString("TitlePrivacy", resourceCulture);
             }
         }
     }
