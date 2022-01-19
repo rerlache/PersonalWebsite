@@ -40,6 +40,23 @@
             opacity: 1;
         }
 
+.content {
+    margin-top: clamp(4.5rem, 10vw, 5rem);
+    margin-bottom: clamp(4.5rem, 10vw, 5rem);
+}
+
+.navbar-nav {
+    padding-top: .3rem;
+    font-size: clamp(1rem, .5vw, 2rem);
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
