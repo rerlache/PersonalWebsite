@@ -124,15 +124,6 @@ namespace BlazorServerApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Privacy Policy.
-        /// </summary>
-        public static string HeadingPrivacy {
-            get {
-                return ResourceManager.GetString("HeadingPrivacy", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to on my totally new Web presenece.&lt;br&gt;Please be aware, this Site is still under Maintenance.&lt;br&gt;I&apos;m working hard, to get a nice Website as soon as possible!.
         /// </summary>
         public static string IndexWelcomeText {
@@ -196,6 +187,15 @@ namespace BlazorServerApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Privacy &amp; Imprint.
+        /// </summary>
+        public static string NavPrivacyImprint {
+            get {
+                return ResourceManager.GetString("NavPrivacyImprint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Animal Photography.
         /// </summary>
         public static string PhotoProjectAnimal {
@@ -246,15 +246,6 @@ namespace BlazorServerApp.Resources {
         public static string PhotoTitleLandscape1 {
             get {
                 return ResourceManager.GetString("PhotoTitleLandscape1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to I &lt;b&gt;DO NOT&lt;/b&gt; store any of your data, period..
-        /// </summary>
-        public static string PrivacyContent {
-            get {
-                return ResourceManager.GetString("PrivacyContent", resourceCulture);
             }
         }
         
@@ -322,7 +313,7 @@ namespace BlazorServerApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Privacy Policy from.
+        ///   Looks up a localized string similar to Privacy Policy &amp; Imprint of.
         /// </summary>
         public static string TitlePrivacy {
             get {

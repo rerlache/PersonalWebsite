@@ -139,9 +139,6 @@
   <data name="HeadingPhotography" xml:space="preserve">
     <value>Schau dir das an...</value>
   </data>
-  <data name="HeadingPrivacy" xml:space="preserve">
-    <value>Datenschutz-Bestimmungen</value>
-  </data>
   <data name="IndexWelcomeText" xml:space="preserve">
     <value>auf meiner neuen Website.&lt;br&gt;Die Seite befindet sich noch im Aufbau, deshalb ist der Inhalt noch nicht komplett.&lt;br&gt;Ich arbeite hart daran, so schnell wie möglich eine neue tolle Website zu haben!</value>
     <comment>to get the &lt;br&gt; resolved correct, this has to be called with @Html.Raw()</comment>
@@ -170,6 +167,9 @@
     <value>Fotografie</value>
     <comment>Navigation Item Photography</comment>
   </data>
+  <data name="NavPrivacyImprint" xml:space="preserve">
+    <value>Datenschutz &amp; Impressum</value>
+  </data>
   <data name="PhotoProjectAnimal" xml:space="preserve">
     <value>Tier Fotografie</value>
   </data>
@@ -187,10 +187,6 @@
   </data>
   <data name="PhotoTitleLandscape1" xml:space="preserve">
     <value>Testen des Lens Balls</value>
-  </data>
-  <data name="PrivacyContent" xml:space="preserve">
-    <value>Ich speichere &lt;b&gt;KEINERLEI&lt;/b&gt; persönliche Daten, punkt.</value>
-    <comment>use @((MarkupString)Name) to get it formated.</comment>
   </data>
   <data name="TitleAbout" xml:space="preserve">
     <value>Über mich</value>
@@ -221,6 +217,6 @@
     <comment>Page Title Photography</comment>
   </data>
   <data name="TitlePrivacy" xml:space="preserve">
-    <value>Privacy Policy from</value>
+    <value>Datenschutzbestimmung &amp; Impressum von</value>
   </data>
 </root>

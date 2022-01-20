@@ -1,4 +1,9 @@
 ﻿@page "/photography"
+@code {
+    bool showModal = false;
+    string imgSource = "";
+    string imgTitle = "";
+}
 
 <h3>@Resources.Lang.HeadingPhotography</h3>
 
@@ -6,36 +11,73 @@
     <div class="container-fluid p-0">
         <div class="row g-0">
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="assets/images/portfolio/Elsa1.JPG" title="@Resources.Lang.PhotoTitleElsa1" target="_blank">
-                    <img class="img-fluid" src="assets/images/portfolio/Elsa1.JPG" alt="..." />
+                <button class="portfolio-box btn-outline-light"
+                        title="@Resources.Lang.PhotoTitleElsa1"
+                        @onclick="@(() => {
+                                        showModal = true;
+                                        imgSource = "assets/images/portfolio/Elsa1.JPG";
+                                        imgTitle = Resources.Lang.PhotoTitleElsa1;
+                                    })">
+                    <img class="img-fluid img-thumbnail" src="assets/images/portfolio/Elsa1.JPG" alt="..." />
                     <div class="portfolio-box-caption">
                         <div class="project-category text-white-50">@Resources.Lang.PhotoProjectCat</div>
                         <div class="project-name">@Resources.Lang.PhotoProjectAnimal</div>
                     </div>
-                </a>
+                </button>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="assets/images/portfolio/Landscape1.JPG" title="@Resources.Lang.PhotoTitleLandscape1" target="_blank">
-                    <img class="img-fluid" src="assets/images/portfolio/Landscape1.JPG" alt="..." />
+                <button class="portfolio-box btn-outline-light"
+                        title="@Resources.Lang.PhotoTitleLandscape1"
+                        @onclick="@(() => {
+                                        showModal = true;
+                                        imgSource = "assets/images/portfolio/Landscape1.JPG";
+                                        imgTitle = Resources.Lang.PhotoTitleLandscape1;
+                                    })">
+                    <img class="img-fluid img-thumbnail" src="assets/images/portfolio/Landscape1.JPG" alt="..." />
                     <div class="portfolio-box-caption">
                         <div class="project-category text-white-50">@Resources.Lang.PhotoProjectCat</div>
                         <div class="project-name">@Resources.Lang.PhotoProjectLandscape</div>
                     </div>
-                </a>
+                </button>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="assets/images/portfolio/Elsa2.JPG" title="@Resources.Lang.PhotoTitleElsa2" target="">
-                    <img class="img-fluid" src="assets/images/portfolio/Elsa2.JPG" alt="..." />
+                <button class="portfolio-box btn-outline-light"
+                        title="@Resources.Lang.PhotoTitleElsa2"
+                        @onclick="@(() => {
+                                        showModal = true;
+                                        imgSource = "assets/images/portfolio/Elsa2.JPG";
+                                        imgTitle = Resources.Lang.PhotoTitleElsa2;
+                                    })">
+                    <img class="img-fluid img-thumbnail" src="assets/images/portfolio/Elsa2.JPG" alt="..." />
                     <div class="portfolio-box-caption">
                         <div class="project-category text-white-50">@Resources.Lang.PhotoProjectCat</div>
                         <div class="project-name">@Resources.Lang.PhotoProjectAnimal</div>
                     </div>
-                </a>
+                </button>
             </div>
         </div>
     </div>
 </div>
 
-@code {
-
+@if (showModal)
+{
+    <div class="modal fade show" tabindex="-1" role="dialog" style="display: block;">
+        <div class="modal-dialog modal-fullscreen" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" style="padding: .5rem;">
+                    <h5 class="modal-title">@imgTitle</h5>
+                    <button class="close" data-dismiss="modal" aria-label="Close" @onclick="@(() => { showModal = false; })">
+                        <i class='fas fa-window-close'></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="padding: .5rem;">
+                    <p><img src="@imgSource" width="100%" /></p>
+                </div>
+                @*<div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" @onclick="@(() => { showModal = false; })">Close</button>
+                    </div>*@
+            </div>
+        </div>
+    </div>
 }

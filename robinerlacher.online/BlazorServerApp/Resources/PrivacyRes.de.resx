@@ -117,106 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HeadingAbout" xml:space="preserve">
-    <value>Who am i?</value>
+  <data name="ImprintContent" xml:space="preserve">
+    <value>Robin Erlacher&lt;br /&gt;
+Höttinger Auffahrt 1a&lt;br /&gt;
+6020 Innsbruck&lt;br /&gt;&lt;br /&gt;
+Telefon: +43 (0)676 381 55 53&lt;br /&gt;
+E-Mail: &lt;a href="mailto:main@robinerlacher.online"&gt;main[at]robinerlacher.online&lt;/a&gt;</value>
   </data>
-  <data name="HeadingCoding" xml:space="preserve">
-    <value>if(mug == empty){robin.unhappy;mug.refill();}&lt;br&gt;else{robin.happy}</value>
-    <comment>use @((MarkupString)HeadingCoding) to benefit of the &lt;br&gt; tag</comment>
+  <data name="PrivacyContent" xml:space="preserve">
+    <value>Ich speichere &lt;b&gt;KEINERLEI&lt;/b&gt; persönliche Daten, punkt.</value>
   </data>
-  <data name="HeadingDog" xml:space="preserve">
-    <value>Extraordinary Elsa of Flying Porkies</value>
-  </data>
-  <data name="HeadingIcehockey" xml:space="preserve">
-    <value>Fastest Teamsport on Earth</value>
-  </data>
-  <data name="HeadingIndex" xml:space="preserve">
-    <value>Welcome</value>
-  </data>
-  <data name="HeadingMotorcycle" xml:space="preserve">
-    <value>Freedom on 2 wheels</value>
-  </data>
-  <data name="HeadingPhotography" xml:space="preserve">
-    <value>Let me show you...</value>
-  </data>
-  <data name="IndexWelcomeText" xml:space="preserve">
-    <value>on my totally new Web presenece.&lt;br&gt;Please be aware, this Site is still under Maintenance.&lt;br&gt;I'm working hard, to get a nice Website as soon as possible!</value>
-    <comment>to get the &lt;br&gt; resolved correct, this has to be called with @Html.Raw()</comment>
-  </data>
-  <data name="NavAbout" xml:space="preserve">
-    <value>About me</value>
-    <comment>Navigation Item About</comment>
-  </data>
-  <data name="NavCoding" xml:space="preserve">
-    <value>Coding</value>
-    <comment>Navigation Item Coding</comment>
-  </data>
-  <data name="NavDog" xml:space="preserve">
-    <value>Dog</value>
-    <comment>Navigation Item Dog</comment>
-  </data>
-  <data name="NavIcehockey" xml:space="preserve">
-    <value>Icehockey</value>
-    <comment>Navigation Item Icehockey</comment>
-  </data>
-  <data name="NavMotorcycle" xml:space="preserve">
-    <value>Motorcycle</value>
-    <comment>Navigation Item Motorcycle</comment>
-  </data>
-  <data name="NavPhotography" xml:space="preserve">
-    <value>Photography</value>
-    <comment>Navigation Item Photography</comment>
-  </data>
-  <data name="NavPrivacyImprint" xml:space="preserve">
-    <value>Privacy &amp; Imprint</value>
-  </data>
-  <data name="PhotoProjectAnimal" xml:space="preserve">
-    <value>Animal Photography</value>
-  </data>
-  <data name="PhotoProjectCat" xml:space="preserve">
-    <value>Category</value>
-  </data>
-  <data name="PhotoProjectLandscape" xml:space="preserve">
-    <value>Landscape Photography</value>
-  </data>
-  <data name="PhotoTitleElsa1" xml:space="preserve">
-    <value>Extraordinary Elsa of Flying Porkies</value>
-  </data>
-  <data name="PhotoTitleElsa2" xml:space="preserve">
-    <value>Elsa is looking for something very interesting...</value>
-  </data>
-  <data name="PhotoTitleLandscape1" xml:space="preserve">
-    <value>Testing the Lens Ball</value>
-  </data>
-  <data name="TitleAbout" xml:space="preserve">
-    <value>About me</value>
-    <comment>Page Title About</comment>
-  </data>
-  <data name="TitleCoding" xml:space="preserve">
-    <value>Code by:</value>
-    <comment>Page Title Coding</comment>
-  </data>
-  <data name="TitleDog" xml:space="preserve">
-    <value>Dog Owner</value>
-    <comment>Page Title Dog</comment>
-  </data>
-  <data name="TitleIcehockey" xml:space="preserve">
-    <value>Hockey player</value>
-    <comment>Page Title Icehockey</comment>
-  </data>
-  <data name="TitleIndex" xml:space="preserve">
-    <value>Welcome</value>
-    <comment>Page Title Index</comment>
-  </data>
-  <data name="TitleMotorcycle" xml:space="preserve">
-    <value>Bike Rider</value>
-    <comment>Page Title Motorcycle</comment>
-  </data>
-  <data name="TitlePhotography" xml:space="preserve">
-    <value>Photography by:</value>
-    <comment>Page Title Photography</comment>
+  <data name="TitleImprint" xml:space="preserve">
+    <value>Impressum</value>
   </data>
   <data name="TitlePrivacy" xml:space="preserve">
-    <value>Privacy Policy &amp; Imprint of</value>
+    <value>Datenschutz-Bestimmungen</value>
   </data>
 </root>
