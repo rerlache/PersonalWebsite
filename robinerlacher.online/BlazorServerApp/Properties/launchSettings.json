@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:62319",
-      "sslPort": 44394
+      "applicationUrl": "http://localhost:25659",
+      "sslPort": 44337
     }
   },
   "profiles": {
@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "robinerlacher.online": {
+    "BlazorServerApp": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

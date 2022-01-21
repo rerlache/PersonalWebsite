@@ -1,0 +1,40 @@
+﻿@page "/"
+@code{ 
+    bool showModal = false;
+    string imgSource = "";
+}
+
+<h1>@Resources.Lang.HeadingIndex</h1>
+
+<p>@((MarkupString)Resources.Lang.IndexWelcomeText)</p>
+
+<p>
+        <img srcset="assets/images/bg-masthead.jpg 2x" width="50%" class="img-thumbnail" />
+</p>
+
+@if (showModal)
+{
+    <div class="modal fade show" tabindex="-1" role="dialog" style="display: block;">
+        <div class="modal-dialog modal-fullscreen" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><img src="@imgSource" width="100%" /></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" @onclick="@(() => { showModal = false; })">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@*
+    <SurveyPrompt Title="How is Blazor working for you?" />
+*@
