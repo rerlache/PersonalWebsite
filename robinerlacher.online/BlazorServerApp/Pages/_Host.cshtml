@@ -10,7 +10,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] robinerlacher.online</title>
+@{#if DEBUG}
+    <title>@ViewData["Title"]DEBUG Site: robinerlacher.online</title>
+@{#else}
+    <title>@ViewData["Title"]robinerlacher.online</title>
+@{#endif}
     <base href="~/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link href="css/site.css" rel="stylesheet" />

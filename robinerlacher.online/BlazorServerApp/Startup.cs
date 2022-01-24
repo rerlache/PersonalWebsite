@@ -76,7 +76,7 @@ namespace BlazorServerApp
 
             app.UseRequestLocalization();
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
