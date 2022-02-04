@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Blazorise" Version="0.9.5.5" />
     <PackageReference Include="BlazorTimeline" Version="1.3.2" />
   </ItemGroup>
 
