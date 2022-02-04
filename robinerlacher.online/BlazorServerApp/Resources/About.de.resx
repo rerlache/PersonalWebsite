@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="1986Body" xml:space="preserve">
+    <value>Geboren in Rum bei Innsbruck</value>
+  </data>
+  <data name="1986Title" xml:space="preserve">
+    <value>Geboren</value>
+  </data>
+  <data name="1993Body" xml:space="preserve">
+    <value>Anfang meiner Schulischen Laufbahn</value>
+  </data>
+  <data name="1993Title" xml:space="preserve">
+    <value>Volksschule</value>
+  </data>
+  <data name="1997Body" xml:space="preserve">
+    <value>In der 3. Klasse stand für mich fest, dass ich nach 9 Jahren Pflichtschule Arbeiten will.&lt;br /&gt;Dass es mit Computern sein wird, war mir auch schon klar.</value>
+  </data>
+  <data name="1997Title" xml:space="preserve">
+    <value>Hauptschule</value>
+  </data>
+  <data name="2001Body" xml:space="preserve">
+    <value>Deswegen belegte ich im Polytechnischen Lehrgang auch alle Computer-relevanten Klassen.</value>
+  </data>
+  <data name="2001Title" xml:space="preserve">
+    <value>Polytechnischer Lehrgang</value>
+  </data>
+  <data name="200208Body" xml:space="preserve">
+    <value>Gefördert und unterstützt vom AMS besuchte ich diesen Kurs obwohl ich schon wußte, was ich machen will.
+            Die Praktikums-Wochen kamen mir da gelegen um meine Arbeit auch unter Beweis stellen zu können.</value>
+  </data>
+  <data name="200208Title" xml:space="preserve">
+    <value>Berufsorientierungskurs</value>
+  </data>
+  <data name="200209Body" xml:space="preserve">
+    <value>KTW bot diesen EDV-Techniker Lehrgang an, welcher mir für meine Zukunft zugute kommen sollte.</value>
+  </data>
+  <data name="200209Title" xml:space="preserve">
+    <value>IT Lehrgang</value>
+  </data>
+  <data name="200212Body" xml:space="preserve">
+    <value>Dank des Berufsorientierungskurses bzw den Praktikas konnte ich dann endlich in die Arbeitswelt einsteigen.</value>
+  </data>
+  <data name="200212Title" xml:space="preserve">
+    <value>Beginn Lehre</value>
+  </data>
+  <data name="2004Body" xml:space="preserve">
+    <value>Mobile Unabhängigkeit, dank bestandener Führerschein-Prüfung (L17)</value>
+  </data>
+  <data name="2004Title" xml:space="preserve">
+    <value>Führerschein</value>
+  </data>
+  <data name="2006Body" xml:space="preserve">
+    <value>6 Monate Wehrdienst in Lienz&lt;br /&gt;Nach der Grundausbildung kam ich zum Wachdienst.&lt;br /&gt;Hier hab ich auch erfolgreich die Wachmeister Ausbildung abgeschlossen.</value>
+  </data>
+  <data name="2006Title" xml:space="preserve">
+    <value>Wehrdienst</value>
+  </data>
+  <data name="2007Body" xml:space="preserve">
+    <value>Nach dem Wehrdienst und einer Woche Urlaub fing ich erneut bei MED-EL als IT-Helpdesk Mitarbeiter an.</value>
+  </data>
+  <data name="2007Title" xml:space="preserve">
+    <value>IT-Helpdesk</value>
+  </data>
+  <data name="2010Body" xml:space="preserve">
+    <value>Für noch mehr mobile Unabhängigkeit gönnte ich mir die A-Eintragung im Führerschein.</value>
+  </data>
+  <data name="2010Title" xml:space="preserve">
+    <value>Motorrad Führerschein</value>
+  </data>
+  <data name="201703Body" xml:space="preserve">
+    <value>Nach 15 Jahren im Helpdesk mit immer mehr spezielleren Themen (Sharepoint, Linux, Exchange, ...) wechselte ich zur System Administration.</value>
+  </data>
+  <data name="201703Title" xml:space="preserve">
+    <value>System Administration</value>
+  </data>
+  <data name="201710Body" xml:space="preserve">
+    <value>Nach einer Abteilungs Umstrukturierung, wechselte ich mitsamt der Sharepoint Thematik zu Business Applications.</value>
+  </data>
+  <data name="201710Title" xml:space="preserve">
+    <value>Business Applications</value>
+  </data>
+  <data name="201712Body" xml:space="preserve">
+    <value>Erneute Umstrukturierung und ein wechsel, diesmal ein Abteilungswechsel zu Digital Development.&lt;br /&gt;Hier konnte ich Erfahrungen mit SCRUM, CRM, Power Platform und Programmieren sammeln.</value>
+  </data>
+  <data name="201712Title" xml:space="preserve">
+    <value>Digital Development</value>
+  </data>
+  <data name="2020Body" xml:space="preserve">
+    <value>Rechtzeitig vor dem ganzen Corona-Wahnsinn hatte ich Glück und bekam meinen ersten Hund.&lt;br /&gt;Mehr dazu unter "Hund".</value>
+  </data>
+  <data name="2020Title" xml:space="preserve">
+    <value>Erster Hund</value>
+  </data>
+  <data name="202104Body" xml:space="preserve">
+    <value>Erneuter Abeitulngswechsel. Zurück bei IT übernahm ich neue Aufgaben und Herausforderungen.&lt;br /&gt;Als Cloud System Administrator kamen die Themen dazu (zusätzlich zu Sharepoint).&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Azure&lt;/li&gt;&lt;li&gt;Box&lt;/li&gt;&lt;li&gt;Power Platform&lt;/li&gt;&lt;li&gt;AWS&lt;/li&gt;&lt;/ul&gt;</value>
+  </data>
+  <data name="202104Title" xml:space="preserve">
+    <value>System Administration</value>
+  </data>
+  <data name="202110Body" xml:space="preserve">
+    <value>Start des Software Developer mit C# Kurses beim WIFI Innsbruck.&lt;br /&gt;Nach 3 Jahren ohne Programmieren starte ich jetzt durch.&lt;br /&gt;Dank dieses Kurses war ich auch wieder motiviert eine neue Website zu erstellen.</value>
+  </data>
+  <data name="202110Title" xml:space="preserve">
+    <value>C# Software Developer</value>
+  </data>
+</root>
