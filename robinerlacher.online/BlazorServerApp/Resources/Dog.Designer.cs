@@ -77,5 +77,59 @@ namespace BlazorServerApp.Resources {
                 return ResourceManager.GetString("IntroText", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://en.working-dog.com/dogs-details/6140164/Ken-Ritakim.
+        /// </summary>
+        public static string KenLink {
+            get {
+                return ResourceManager.GetString("KenLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Her Dad.
+        /// </summary>
+        public static string KenText {
+            get {
+                return ResourceManager.GetString("KenText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://en.working-dog.com/dogs-details/6134677/Pokahontas-%C3%96HZBPRT-2648R-Erlacher.
+        /// </summary>
+        public static string PokiLink {
+            get {
+                return ResourceManager.GetString("PokiLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Her Mom.
+        /// </summary>
+        public static string PokiText {
+            get {
+                return ResourceManager.GetString("PokiText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://en.working-dog.com/dogs-details/6831554/Extraordinary-Elsa-of-Flying-Porkies.
+        /// </summary>
+        public static string WorkingDogLink {
+            get {
+                return ResourceManager.GetString("WorkingDogLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to See &lt;b&gt;Elsa&lt;/b&gt; on working-dog.com.
+        /// </summary>
+        public static string WorkingDogText {
+            get {
+                return ResourceManager.GetString("WorkingDogText", resourceCulture);
+            }
+        }
     }
 }

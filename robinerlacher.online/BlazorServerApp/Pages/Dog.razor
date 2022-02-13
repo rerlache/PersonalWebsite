@@ -2,10 +2,49 @@
 @using Blazorise
 
 <Jumbotron Background="Background.Light">
-    <JumbotronTitle >@Resources.Dog.Heading</JumbotronTitle>
+    <JumbotronTitle>@Resources.Dog.Heading</JumbotronTitle>
     <JumbotronSubtitle>
         @Resources.Dog.IntroText
     </JumbotronSubtitle>
+
+    <Container Breakpoint="Breakpoint.Desktop" Fluid="true">
+        <Row Gutter="(16,16)">
+            <Column ColumnSize="ColumnSize.Is7">
+                Elsa joined my Life on January 2020.<br />
+                Right before the first Covid restrictions were hitting us.
+            </Column>
+            <Column ColumnSize="ColumnSize.Is5">
+                <Figure Size="FigureSize.Is256x256">
+
+                </Figure>
+            </Column>
+        </Row>
+        <Row Gutter="(16,16)">
+            <Column ColumnSize="ColumnSize.Is5">
+                <Figure Size="FigureSize.Is256x256">
+
+                </Figure>
+            </Column>
+            <Column ColumnSize="ColumnSize.Is7">
+                She's born in July 2019 with 5 other puppies.<br />
+                <Link To="@Resources.Dog.PokiLink" Target="Target.Blank">
+                <Button Color="Color.Light">@Resources.Dog.PokiText</Button>
+                </Link> 
+                <Link To="@Resources.Dog.PokiLink" Target="Target.Blank">
+                <Button Color="Color.Light">@Resources.Dog.KenText</Button>
+                </Link>
+            </Column>
+        </Row>
+        <Row>
+            <Column>
+                <Link To="@Resources.Dog.WorkingDogLink" Target="Target.Blank">
+                <Button Color="Color.Primary" Outline>
+                    @((MarkupString)Resources.Dog.WorkingDogText)
+                </Button>
+                </Link>
+            </Column>
+        </Row>
+    </Container>
 </Jumbotron>
 
 @code {

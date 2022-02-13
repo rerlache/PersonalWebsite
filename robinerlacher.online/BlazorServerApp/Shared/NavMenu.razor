@@ -6,6 +6,7 @@
             </BarLink>
         </BarItem>
     </BarBrand>
+
     <BarToggler>
         <span class="fas fa-bars"></span>
     </BarToggler>
@@ -52,114 +53,132 @@
     </BarMenu>
 </Bar>
 
-@*<div class="container">
-        <a class="navbar-brand text-light" href="/">
-        </a>
-        <button class="navbar-toggler" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="fas fa-bars"></span>
-        </button>
-        <div class="@NavMenuCssClass navbar-collapse d-sm-inline-flex flex-sm-row-reverse" @onclick="CollapseNavMenu">
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="about"><i class="fas fa-user-circle"></i>&nbsp;@Resources.Lang.NavAbout</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="dog"><i class="fas fa-dog"></i>&nbsp;@Resources.Lang.NavDog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="coding"><i class="fas fa-laptop-code"></i>&nbsp;@Resources.Lang.NavCoding</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="photography"><i class="fas fa-camera"></i>&nbsp;@Resources.Lang.NavPhotography</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="motorcycle"><i class="fas fa-motorcycle"></i>&nbsp;@Resources.Lang.NavMotorcycle</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="icehockey"><i class="fas fa-hockey-puck"></i>&nbsp;@Resources.Lang.NavIcehockey</a>
-                </li>
-            @{ #if DEBUG}
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="fetchdata">&nbsp;Fetch data</a>
-                </li>
-            @{#endif}
-            </ul>
-        </div>
-    </div>
-
-
-@code {
-    bool collapseNavMenu = true;
-
-    string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    void ToggleNavMenu()
+@code{
+    Task OnThemeColorChanged(string value)
     {
-        collapseNavMenu = !collapseNavMenu;
+        if (Theme?.ColorOptions != null)
+            Theme.ColorOptions.Primary = value;
+
+        if (Theme?.BackgroundOptions != null)
+            Theme.BackgroundOptions.Primary = value;
+
+        Theme.ThemeHasChanged();
+
+        return Task.CompletedTask;
     }
 
-    void CollapseNavMenu()
-    {
-        collapseNavMenu = true;
-    }
+    [CascadingParameter] Theme Theme { get; set; }
 }
 
-                <ul class="navbar-nav flex-grow-1">
-    <div class="top-row pl-4 navbar navbar-dark">
-        <a class="navbar-brand" href="">Robin Erlacher</a>
-        <button class="navbar-toggler" @onclick="ToggleSideNavMenu">
-            <span class="fas fa-bars"></span>
-        </button>
 
-        <div class="@NavMenuCssClass" @onclick="ToggleSideNavMenu">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="counter" ><i class="fas fa-user-circle"></i> About me</NavLink>
-                </li>
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="photography"><i class="fas fa-camera"></i> Photography</NavLink>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="motorcycle"><i class="fas fa-motorcycle"></i> Motorcycle</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/Dog"><i class="fas fa-dog"></i> Dog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/Icehockey"><i class="fas fa-hockey-puck"></i> Icehockey</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/Coding"><i class="fas fa-laptop-code"></i> Coding</a>
-                </li>
-            </ul>
-                    <li class="nav-item px-3">
-                        <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                            <span class="oi oi-home" aria-hidden="true"></span> Home
-                        </NavLink>
+@*<div class="container">
+            <a class="navbar-brand text-light" href="/">
+            </a>
+            <button class="navbar-toggler" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fas fa-bars"></span>
+            </button>
+            <div class="@NavMenuCssClass navbar-collapse d-sm-inline-flex flex-sm-row-reverse" @onclick="CollapseNavMenu">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="about"><i class="fas fa-user-circle"></i>&nbsp;@Resources.Lang.NavAbout</a>
                     </li>
-                    <li class="nav-item px-3">
-                        <NavLink class="nav-link" href="counter">
-                            <span class="oi oi-plus" aria-hidden="true"></span> Counter
-                        </NavLink>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="dog"><i class="fas fa-dog"></i>&nbsp;@Resources.Lang.NavDog</a>
                     </li>
-                    <li class="nav-item px-3">
-                        <NavLink class="nav-link" href="fetchdata">
-                            <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-                        </NavLink>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="coding"><i class="fas fa-laptop-code"></i>&nbsp;@Resources.Lang.NavCoding</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="photography"><i class="fas fa-camera"></i>&nbsp;@Resources.Lang.NavPhotography</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="motorcycle"><i class="fas fa-motorcycle"></i>&nbsp;@Resources.Lang.NavMotorcycle</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="icehockey"><i class="fas fa-hockey-puck"></i>&nbsp;@Resources.Lang.NavIcehockey</a>
+                    </li>
+                @{ #if DEBUG}
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="fetchdata">&nbsp;Fetch data</a>
+                    </li>
+                @{#endif}
+                </ul>
+            </div>
         </div>
-    </div>
+
 
     @code {
-        private bool collapsedSideNavMenu = true;
+        bool collapseNavMenu = true;
 
-        private string NavMenuCssClass => collapsedSideNavMenu ? "collapse" : null;
+        string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-        private void ToggleSideNavMenu()
+        void ToggleNavMenu()
         {
-            collapsedSideNavMenu = !collapsedSideNavMenu;
+            collapseNavMenu = !collapseNavMenu;
+        }
+
+        void CollapseNavMenu()
+        {
+            collapseNavMenu = true;
         }
     }
+
+                    <ul class="navbar-nav flex-grow-1">
+        <div class="top-row pl-4 navbar navbar-dark">
+            <a class="navbar-brand" href="">Robin Erlacher</a>
+            <button class="navbar-toggler" @onclick="ToggleSideNavMenu">
+                <span class="fas fa-bars"></span>
+            </button>
+
+            <div class="@NavMenuCssClass" @onclick="ToggleSideNavMenu">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="counter" ><i class="fas fa-user-circle"></i> About me</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="photography"><i class="fas fa-camera"></i> Photography</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="motorcycle"><i class="fas fa-motorcycle"></i> Motorcycle</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Dog"><i class="fas fa-dog"></i> Dog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Icehockey"><i class="fas fa-hockey-puck"></i> Icehockey</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Coding"><i class="fas fa-laptop-code"></i> Coding</a>
+                    </li>
                 </ul>
+                        <li class="nav-item px-3">
+                            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                                <span class="oi oi-home" aria-hidden="true"></span> Home
+                            </NavLink>
+                        </li>
+                        <li class="nav-item px-3">
+                            <NavLink class="nav-link" href="counter">
+                                <span class="oi oi-plus" aria-hidden="true"></span> Counter
+                            </NavLink>
+                        </li>
+                        <li class="nav-item px-3">
+                            <NavLink class="nav-link" href="fetchdata">
+                                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+                            </NavLink>
+                        </li>
+            </div>
+        </div>
+
+        @code {
+            private bool collapsedSideNavMenu = true;
+
+            private string NavMenuCssClass => collapsedSideNavMenu ? "collapse" : null;
+
+            private void ToggleSideNavMenu()
+            {
+                collapsedSideNavMenu = !collapsedSideNavMenu;
+            }
+        }
+                    </ul>
 *@

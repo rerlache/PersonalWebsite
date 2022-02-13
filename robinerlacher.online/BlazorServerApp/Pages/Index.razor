@@ -1,16 +1,24 @@
 ﻿@page "/"
-@code{ 
+@code{
     bool showModal = false;
     string imgSource = "";
 }
 
-<h1>@Resources.Index.Heading</h1>
-
-<p>@((MarkupString)Resources.Index.WelcomeText)</p>
-
-<p>
-        <img srcset="assets/images/WorkPlace.jpg" width="30%" class="img-thumbnail" alt="@Resources.Index.CoverImageAltText"  />
-</p>
+<Jumbotron Background="Background.Transparent">
+<JumbotronTitle>@Resources.Index.Heading</JumbotronTitle>
+<Row>
+    <Column>
+        @((MarkupString)Resources.Index.WelcomeText)
+    </Column>
+</Row>
+<Row>
+    <Column>
+        <figure class="figure w-50">
+            <img src="assets/images/WorkPlace.jpg" class="figure-img img-thumbnail rounded" alt="@Resources.Index.CoverImageAltText" />
+        </figure>
+    </Column>
+</Row>
+</Jumbotron>
 
 
 

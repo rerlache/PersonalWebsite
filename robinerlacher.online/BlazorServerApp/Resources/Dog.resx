@@ -123,4 +123,22 @@
   <data name="IntroText" xml:space="preserve">
     <value>Best decision in my Life!</value>
   </data>
+  <data name="KenLink" xml:space="preserve">
+    <value>https://en.working-dog.com/dogs-details/6140164/Ken-Ritakim</value>
+  </data>
+  <data name="KenText" xml:space="preserve">
+    <value>Her Dad</value>
+  </data>
+  <data name="PokiLink" xml:space="preserve">
+    <value>https://en.working-dog.com/dogs-details/6134677/Pokahontas-%C3%96HZBPRT-2648R-Erlacher</value>
+  </data>
+  <data name="PokiText" xml:space="preserve">
+    <value>Her Mom</value>
+  </data>
+  <data name="WorkingDogLink" xml:space="preserve">
+    <value>https://en.working-dog.com/dogs-details/6831554/Extraordinary-Elsa-of-Flying-Porkies</value>
+  </data>
+  <data name="WorkingDogText" xml:space="preserve">
+    <value>See &lt;b&gt;Elsa&lt;/b&gt; on working-dog.com</value>
+  </data>
 </root>
