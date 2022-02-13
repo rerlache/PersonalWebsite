@@ -4,7 +4,11 @@
 <Jumbotron Background="Background.Light">
     <JumbotronTitle>@Resources.Dog.Heading</JumbotronTitle>
     <JumbotronSubtitle>
-        @Resources.Dog.IntroText
+        <Alert Color="Color.Success" Visible>
+            <AlertMessage>
+                @Resources.Dog.IntroText
+            </AlertMessage>
+        </Alert>
     </JumbotronSubtitle>
 
     <Container Breakpoint="Breakpoint.Desktop" Fluid="true">
@@ -26,22 +30,20 @@
                 </Figure>
             </Column>
             <Column ColumnSize="ColumnSize.Is7">
-                She's born in July 2019 with 5 other puppies.<br />
-                <Link To="@Resources.Dog.PokiLink" Target="Target.Blank">
-                <Button Color="Color.Light">@Resources.Dog.PokiText</Button>
-                </Link> 
-                <Link To="@Resources.Dog.PokiLink" Target="Target.Blank">
-                <Button Color="Color.Light">@Resources.Dog.KenText</Button>
-                </Link>
+                She's born in July 2019 with 4 siblings.<br />
+                <Button Color="Color.Light" Type="ButtonType.Link" To="@Resources.Dog.PokiLink" Target="Target.Blank">
+                    @Resources.Dog.PokiText
+                </Button>
+                <Button Color="Color.Light" Type="ButtonType.Link" To="@Resources.Dog.KenLink" Target="Target.Blank">
+                    @Resources.Dog.KenText
+                </Button>
             </Column>
         </Row>
         <Row>
             <Column>
-                <Link To="@Resources.Dog.WorkingDogLink" Target="Target.Blank">
-                <Button Color="Color.Primary" Outline>
+                <Button Color="Color.Primary" Outline Type="ButtonType.Link" To="@Resources.Dog.WorkingDogLink" Target="Target.Blank">
                     @((MarkupString)Resources.Dog.WorkingDogText)
                 </Button>
-                </Link>
             </Column>
         </Row>
     </Container>
