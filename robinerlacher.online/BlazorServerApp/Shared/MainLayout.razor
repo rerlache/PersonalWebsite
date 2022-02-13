@@ -1,13 +1,22 @@
 ﻿@inherits LayoutComponentBase
+@using Blazorise;
 
-    <div class="page container-fluid">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3 fixed-top">
+
+<Layout>
+    <LayoutContent Margin="Margin.Is5.OnY.FromTop" Padding="Padding.Is5.OnY.FromTop">
+        <LayoutHeader Fixed="true" Height="Height.Auto">
             <NavMenu />
-        </nav>
-        <main class="main content text-center">
+        </LayoutHeader>
+        <Column TextAlignment="TextAlignment.Center">
             @Body
-        </main>
+        </Column>
+    </LayoutContent>
+    <LayoutFooter>
+        <Footer />
+    </LayoutFooter>
+</Layout>
+@*<div class="page container-fluid">
         <footer class="footer">
-            <Footer />
         </footer>
-    </div>
+            <Footer />
+    </div>*@

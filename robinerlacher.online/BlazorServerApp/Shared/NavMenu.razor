@@ -1,6 +1,59 @@
-﻿    <div class="container">
+﻿<Bar Mode="BarMode.Horizontal" Breakpoint="Breakpoint.Desktop" Background="Background.Light" ThemeContrast="ThemeContrast.Light" Height="Height.Is25">
+    <BarBrand>
+        <BarItem>
+            <BarLink To="/">
+                <img src="assets/images/reLogo.png" height="30px" alt="Robin Erlacher" />
+            </BarLink>
+        </BarItem>
+    </BarBrand>
+    <BarToggler>
+        <span class="fas fa-bars"></span>
+    </BarToggler>
+    <BarMenu>
+        <BarStart>
+            <BarItem>
+                <BarLink To="about">
+                    <i class="fas fa-user-circle"></i>&nbsp;@Resources.Lang.NavAbout
+                </BarLink>
+            </BarItem>
+            <BarItem>
+                <BarLink To="dog">
+                    <i class="fas fa-dog"></i>&nbsp;@Resources.Lang.NavDog
+                </BarLink>
+            </BarItem>
+            <BarItem>
+                <BarLink To="coding">
+                    <i class="fas fa-laptop-code"></i>&nbsp;@Resources.Lang.NavCoding
+                </BarLink>
+            </BarItem>
+            <BarItem>
+                <BarLink To="photography">
+                    <i class="fas fa-camera"></i>&nbsp;@Resources.Lang.NavPhotography
+                </BarLink>
+            </BarItem>
+            <BarItem>
+                <BarLink To="motorcycle">
+                    <i class="fas fa-motorcycle"></i>&nbsp;@Resources.Lang.NavMotorcycle
+                </BarLink>
+            </BarItem>
+            <BarItem>
+                <BarLink To="icehockey">
+                    <i class="fas fa-hockey-puck"></i>&nbsp;@Resources.Lang.NavIcehockey
+                </BarLink>
+            </BarItem>
+            @{ #if DEBUG}
+            <BarItem>
+                <BarLink To="fetchdata">
+                    Fetch data
+                </BarLink>
+            </BarItem>
+            @{#endif}
+        </BarStart>
+    </BarMenu>
+</Bar>
+
+@*<div class="container">
         <a class="navbar-brand text-light" href="/">
-            <img src="assets/images/reLogo.png" height="30px" alt="Robin Erlacher" />
         </a>
         <button class="navbar-toggler" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +104,7 @@
         collapseNavMenu = true;
     }
 }
-@*
+
                 <ul class="navbar-nav flex-grow-1">
     <div class="top-row pl-4 navbar navbar-dark">
         <a class="navbar-brand" href="">Robin Erlacher</a>

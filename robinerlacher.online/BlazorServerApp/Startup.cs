@@ -13,6 +13,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
+using Blazorise;
+using Blazorise.Bootstrap;
+using Blazorise.Icons.FontAwesome;
+
+
 
 namespace BlazorServerApp
 {
@@ -48,6 +53,8 @@ namespace BlazorServerApp
                 options.SupportedUICultures = supportedCultures;
             });
             // endregion
+
+            services.AddBlazorise(options => { options.ChangeTextOnKeyPress = true; }).AddBootstrapProviders().AddFontAwesomeIcons();
 
             services.AddRazorPages();
             services.AddServerSideBlazor();
