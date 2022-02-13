@@ -56,6 +56,8 @@ namespace BlazorServerApp
 
             services.AddBlazorise(options => { options.ChangeTextOnKeyPress = true; }).AddBootstrapProviders().AddFontAwesomeIcons();
 
+            
+
             services.AddRazorPages();
             services.AddServerSideBlazor();
             var supportedCultures = new List<CultureInfo> { new CultureInfo("en"), new CultureInfo("de") };
