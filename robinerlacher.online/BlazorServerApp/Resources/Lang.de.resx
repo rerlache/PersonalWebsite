@@ -130,18 +130,11 @@
   <data name="HeadingIcehockey" xml:space="preserve">
     <value>Der schnellste Mannschaftssport der Welt</value>
   </data>
-  <data name="HeadingIndex" xml:space="preserve">
-    <value>Willkommen</value>
-  </data>
   <data name="HeadingMotorcycle" xml:space="preserve">
     <value>Freiheit auf 2 Rädern</value>
   </data>
   <data name="HeadingPhotography" xml:space="preserve">
     <value>Schau dir das an...</value>
-  </data>
-  <data name="IndexWelcomeText" xml:space="preserve">
-    <value>auf meiner neuen Website.&lt;br&gt;Die Seite befindet sich noch im Aufbau, deshalb ist der Inhalt noch nicht komplett.&lt;br&gt;Ich arbeite hart daran, so schnell wie möglich eine neue tolle Website zu haben!</value>
-    <comment>to get the &lt;br&gt; resolved correct, this has to be called with @Html.Raw()</comment>
   </data>
   <data name="NavAbout" xml:space="preserve">
     <value>Über mich</value>
