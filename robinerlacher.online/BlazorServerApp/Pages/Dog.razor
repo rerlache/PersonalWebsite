@@ -10,7 +10,7 @@
             </AlertMessage>
         </Alert>
     </JumbotronSubtitle>
-
+    @{#if DEBUG}
     <Container Breakpoint="Breakpoint.Desktop" Fluid="true">
         <Row Gutter="(16,16)">
             <Column ColumnSize="ColumnSize.Is7">
@@ -47,6 +47,9 @@
             </Column>
         </Row>
     </Container>
+    @{#else}
+    <p>@Resources.Lang.UnderConstruction</p>
+    @{#endif}
 </Jumbotron>
 
 @code {

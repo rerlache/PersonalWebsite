@@ -141,7 +141,7 @@
     <comment>Navigation Item About</comment>
   </data>
   <data name="NavCoding" xml:space="preserve">
-    <value>Entiwcklung</value>
+    <value>Entwicklung</value>
     <comment>Navigation Item Coding</comment>
   </data>
   <data name="NavDog" xml:space="preserve">
@@ -211,5 +211,8 @@
   </data>
   <data name="TitlePrivacy" xml:space="preserve">
     <value>Datenschutzbestimmung &amp; Impressum von</value>
+  </data>
+  <data name="UnderConstruction" xml:space="preserve">
+    <value>Inhalt noch im Aufbau...</value>
   </data>
 </root>
