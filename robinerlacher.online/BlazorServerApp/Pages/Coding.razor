@@ -1,9 +1,165 @@
 ﻿@page "/coding"
+@using Blazorise
 
-<h3>@((MarkupString)Resources.Lang.HeadingCoding)</h3>
+<Jumbotron Background="Background.Light">
+    <JumbotronTitle>
+        @((MarkupString)Resources.Lang.HeadingCoding)
+    </JumbotronTitle>
+    @{#if DEBUG}
+    <JumbotronSubtitle>
+        <Alert Color="Color.Dark" Visible="true">
+            Skills
+        </Alert>
+    </JumbotronSubtitle>
+    <Row Padding="Padding.Is3">
+        <Column ColumnSize="ColumnSize.Is6.OnTablet.Is3.OnDesktop.Is12.OnMobile">
+            <Card Margin="Margin.Is2">
+                <CardBody>
+                    <CardTitle TextWeight="TextWeight.Bold" Size="3">
+                        C#
+                    </CardTitle>
+                    <CardText TextAlignment="TextAlignment.Start">
+                        <ul>
+                            <li>- Basics</li>
+                            <li>- Entity Framework</li>
+                            <li>- Xamarin</li>
+                            <li>- Blazor/Razor</li>
+                        </ul>
+                    </CardText>
+                </CardBody>
+            </Card>
+        </Column>
+        <Column ColumnSize="ColumnSize.Is6.OnTablet.Is3.OnDesktop.Is12.OnMobile">
+            <Card Margin="Margin.Is2">
+                <CardBody>
+                    <CardTitle TextWeight="TextWeight.Bold" Size="3">
+                        PowerShell
+                    </CardTitle>
+                    <CardText TextAlignment="TextAlignment.Start">
+                        wrote complex scripts
+                    </CardText>
+                </CardBody>
+            </Card>
+        </Column>
+        <Column ColumnSize="ColumnSize.Is6.OnTablet.Is3.OnDesktop.Is12.OnMobile">
+            <Card Margin="Margin.Is2">
+                <CardBody>
+                    <CardTitle TextWeight="TextWeight.Bold" Size="3">
+                        SharePoint
+                    </CardTitle>
+                    <CardText TextAlignment="TextAlignment.Start">
+                        <ul>
+                            <li>- 2007</li>
+                            <li>- 2010</li>
+                            <li>- 2016</li>
+                            <li>- Online</li>
+                        </ul>
+                        more frontend then backend
+                    </CardText>
+                </CardBody>
+            </Card>
+        </Column>
+        <Column ColumnSize="ColumnSize.Is6.OnTablet.Is3.OnDesktop.Is12.OnMobile">
+            <Card Margin="Margin.Is2">
+                <CardBody>
+                    <CardTitle TextWeight="TextWeight.Bold" Size="3">
+                        Power Platform
+                    </CardTitle>
+                    <CardText TextAlignment="TextAlignment.Start">
+                        <ul>
+                            <li>- Power Apps</li>
+                            <li>- Power Automate</li>
+                            <li>- Datavers</li>
+                        </ul>
+                        did some projects with the power platform to automate processes.
+                    </CardText>
+                </CardBody>
+            </Card>
+        </Column>
+        <Column ColumnSize="ColumnSize.Is6.OnTablet.Is3.OnDesktop.Is12.OnMobile">
+            <Card Margin="Margin.Is2">
+                <CardBody>
+                    <CardTitle TextWeight="TextWeight.Bold" Size="3">
+                        Linux
+                    </CardTitle>
+                    <CardText TextAlignment="TextAlignment.Start">
+                        did some work with linux also. mainly maintained our internal trac and svn server.
+                    </CardText>
+                </CardBody>
+            </Card>
+        </Column>
+        <Column ColumnSize="ColumnSize.Is6.OnTablet.Is3.OnDesktop.Is12.OnMobile">
+            <Card Margin="Margin.Is2">
+                <CardBody>
+                    <CardTitle TextWeight="TextWeight.Bold" Size="3">
+                        Exchange
+                    </CardTitle>
+                    <CardText TextAlignment="TextAlignment.Start">
 
-<p class="text-left">I started coding in the year 2018.</p>
+                    </CardText>
+                </CardBody>
+            </Card>
+        </Column>
+    </Row>
+    <JumbotronSubtitle>
+        <Alert Color="Color.Dark" Visible="true">
+            Experience
+        </Alert>
+    </JumbotronSubtitle>
+    <Row Padding="Padding.Is3">
+        <Column ColumnSize="ColumnSize.Is6.OnTablet.Is3.OnDesktop.Is12.OnMobile">
+            <Card Margin="Margin.Is2">
+                <CardBody>
+                    <CardTitle TextWeight="TextWeight.Bold" Size="3">
 
+                    </CardTitle>
+                    <CardText TextAlignment="TextAlignment.Start">
+
+                    </CardText>
+                </CardBody>
+            </Card>
+        </Column>
+        <Column ColumnSize="ColumnSize.Is6.OnTablet.Is3.OnDesktop.Is12.OnMobile">
+            <Card Margin="Margin.Is2">
+                <CardBody>
+                    <CardTitle TextWeight="TextWeight.Bold" Size="3">
+
+                    </CardTitle>
+                    <CardText TextAlignment="TextAlignment.Start">
+
+                    </CardText>
+                </CardBody>
+            </Card>
+        </Column>
+        <Column ColumnSize="ColumnSize.Is6.OnTablet.Is3.OnDesktop.Is12.OnMobile">
+            <Card Margin="Margin.Is2">
+                <CardBody>
+                    <CardTitle TextWeight="TextWeight.Bold" Size="3">
+
+                    </CardTitle>
+                    <CardText TextAlignment="TextAlignment.Start">
+
+                    </CardText>
+                </CardBody>
+            </Card>
+        </Column>
+        <Column ColumnSize="ColumnSize.Is6.OnTablet.Is3.OnDesktop.Is12.OnMobile">
+            <Card Margin="Margin.Is2">
+                <CardBody>
+                    <CardTitle TextWeight="TextWeight.Bold" Size="3">
+
+                    </CardTitle>
+                    <CardText TextAlignment="TextAlignment.Start">
+
+                    </CardText>
+                </CardBody>
+            </Card>
+        </Column>
+    </Row>
+    @{ #else}
+    <p>@Resources.Lang.UnderConstruction</p>
+    @{ #endif}
+</Jumbotron>
 @code {
 
 }

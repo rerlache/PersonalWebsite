@@ -320,5 +320,14 @@ namespace BlazorServerApp.Resources {
                 return ResourceManager.GetString("TitlePrivacy", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content is in building process....
+        /// </summary>
+        public static string UnderConstruction {
+            get {
+                return ResourceManager.GetString("UnderConstruction", resourceCulture);
+            }
+        }
     }
 }

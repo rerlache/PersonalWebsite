@@ -219,4 +219,7 @@
   <data name="TitlePrivacy" xml:space="preserve">
     <value>Privacy Policy &amp; Imprint of</value>
   </data>
+  <data name="UnderConstruction" xml:space="preserve">
+    <value>Content is in building process...</value>
+  </data>
 </root>
