@@ -270,7 +270,7 @@ namespace BlazorServerApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Operational and Usage. As i&apos;m responsable for our organization projects, i know the operational part and as we work with SCRUM i also know a bit of the Usage part..
+        ///   Looks up a localized string similar to Operational and Administrative. As I&apos;m responsable for our organization projects, i know the operational part and as we work with SCRUM i also know a bit of the Usage part..
         /// </summary>
         public static string S2C9Body {
             get {

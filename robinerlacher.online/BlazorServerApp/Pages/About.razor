@@ -1,70 +1,116 @@
 ﻿@page "/about"
 @using BlazorTimeline
 
-<div align="Left">
 
-    <Jumbotron Background="Background.Light">
-        <Timeline Title="@Resources.Lang.HeadingAbout"
-                  TitleBgColor="DarkGray"
-                  TitleColor="#FFFFFF"
-                  TextColor="#F3F3F3"
-                  TextBgColor="gray">
-            <TimelineItem Title="@Resources.About._1986Title" Time="02.10.1986">
-                @Resources.About._1986Body
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._1993Title" Time="1993">
-                @Resources.About._1993Body
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._1997Title" Time="1997">
-                @Resources.About._1997Body
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._2001Title" Time="2001">
-                @Resources.About._2001Body
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._200208Title" Time="01.08.2002">
-                @((MarkupString)Resources.About._200208Body)
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._200209Title" Time="01.09.2002">
-                @Resources.About._200209Body
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._200212Title" Time="01.12.2002" ButtonText="MED-EL" Link="https://www.medel.com">
-                @Resources.About._200212Body
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._2004Title" Time="2004">
-                @Resources.About._2004Body
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._2006Title" Time="07.07.2006">
-                @((MarkupString)Resources.About._2006Body)
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._2007Title" Time="14.01.2007">
-                @Resources.About._2007Body
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._2010Title" Time="2010">
-                @Resources.About._2010Body
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._201703Title" Time="01.03.2017">
-                @Resources.About._201703Body
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._201710Title" Time="15.10.2017">
-                @Resources.About._201710Body
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._201712Title" Time="01.12.2017">
-                @((MarkupString)Resources.About._201712Body)
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._2020Title" Time="07.01.2020">
-                @((MarkupString)Resources.About._2020Body)<br />
-                <img src="assets/images/portfolio/Elsa1.JPG" width="75%" />
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._202104Title" Time="01.04.2021">
-                @((MarkupString)Resources.About._202104Body)
-            </TimelineItem>
-            <TimelineItem Title="@Resources.About._202110Title" Time="01.10.2021">
-                @((MarkupString)Resources.About._202110Body)
-            </TimelineItem>
-        </Timeline>
-        </Jumbotron>
-</div>
+<Jumbotron Background="Background.Light">
+    <JumbotronTitle>
+        @Resources.Lang.HeadingAbout
+    </JumbotronTitle>
+    <Row>
+        @{ #if DEBUG}
+        <Column ColumnSize="ColumnSize.Is6.OnDesktop.Is12.OnMobile" TextAlignment="TextAlignment.Start">
+            <JumbotronSubtitle TextAlignment="TextAlignment.Center" Background="Background.Dark" TextColor="TextColor.White">
+                Business me
+            </JumbotronSubtitle>
+            <Paragraph>
+                With about 8 years, i got my first Computer. Mostly used to play games on it, but with higher classes i used it more often also for homework and presentations.
+                As i worked and played more and more on the computer, i got more interessted and started working with the Hardware as well.
+                Quite soon, my spare time was full with Soccer and doing computer stuff. Which lead me to the decission to start an Apprenticeship as soon as i'm done with school.
+            </Paragraph>
+            <Paragraph>
+                So i started my work career with 16 years as an "EDV-Technician". I had a lot of fun, sticking all components together and get the systems up and running.
+                Another part of the job was solving issues for our users. Time flies by and so i got other responsibilities and work to do.
+            </Paragraph>
+            <Paragraph>
+                So i got introduced to:
+                <ListGroup Flush="true">
+                    <ListGroupItem>
+                        <Icon Name="IconName.ChevronRight" /> Sharepoint, which was used as our Intranet Platform
+                    </ListGroupItem>
+                    <ListGroupItem>
+                        <Icon Name="IconName.ChevronRight" /> Microsoft Exchange
+                    </ListGroupItem>
+                    <ListGroupItem>
+                        <Icon Name="IconName.ChevronRight" /> Linux, to maintain our Trac/SVN and our Phonesystem (based on Asterisk)
+                    </ListGroupItem>
+                </ListGroup>
+            </Paragraph>
+            <Paragraph>
+                As working in first and second/third-level support isn't easy, I moved from the Helpdesk (about 15 years) to System Administration, where I could focus much better on the topics I'm responsable for.
+            </Paragraph>
+            <Paragraph>
+                Some organizational changes later, I'm out of the IT department and work together with a few Developers. Which opened my eyes, how cool it is. This is how i got into programming.
+                Soon i also got more familiar with PowerApps which was quite like my "Developer Entry Point".
+            </Paragraph>
+
+            <JumbotronSubtitle TextAlignment="TextAlignment.Center" Background="Background.Dark" TextColor="TextColor.White">
+                Private me
+            </JumbotronSubtitle>
+        </Column>
+        @{#endif}
+        <Column ColumnSize="ColumnSize.Is6.OnDesktop.Is12.OnDesktop">
+            <Timeline TitleBgColor="DarkGray"
+                      TitleColor="#FFFFFF"
+                      TextColor="#F3F3F3"
+                      TextBgColor="gray">
+                <div align="Left">
+                    <TimelineItem Title="@Resources.About._1986Title" Time="02.10.1986">
+                        @Resources.About._1986Body
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._1993Title" Time="1993">
+                        @Resources.About._1993Body
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._1997Title" Time="1997">
+                        @Resources.About._1997Body
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._2001Title" Time="2001">
+                        @Resources.About._2001Body
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._200208Title" Time="01.08.2002">
+                        @((MarkupString)Resources.About._200208Body)
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._200209Title" Time="01.09.2002">
+                        @Resources.About._200209Body
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._200212Title" Time="01.12.2002" ButtonText="MED-EL" Link="https://www.medel.com">
+                        @Resources.About._200212Body
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._2004Title" Time="2004">
+                        @Resources.About._2004Body
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._2006Title" Time="07.07.2006">
+                        @((MarkupString)Resources.About._2006Body)
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._2007Title" Time="14.01.2007">
+                        @Resources.About._2007Body
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._2010Title" Time="2010">
+                        @Resources.About._2010Body
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._201703Title" Time="01.03.2017">
+                        @Resources.About._201703Body
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._201710Title" Time="15.10.2017">
+                        @Resources.About._201710Body
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._201712Title" Time="01.12.2017">
+                        @((MarkupString)Resources.About._201712Body)
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._2020Title" Time="07.01.2020">
+                        @((MarkupString)Resources.About._2020Body)<br />
+                        <img src="assets/images/portfolio/Elsa1.JPG" width="75%" />
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._202104Title" Time="01.04.2021">
+                        @((MarkupString)Resources.About._202104Body)
+                    </TimelineItem>
+                    <TimelineItem Title="@Resources.About._202110Title" Time="01.10.2021">
+                        @((MarkupString)Resources.About._202110Body)
+                    </TimelineItem>
+                </div>
+            </Timeline>
+        </Column>
+    </Row>
+</Jumbotron>
 
 @code {
-
 }
