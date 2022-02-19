@@ -23,6 +23,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>About.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\Coding.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Coding.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Dog.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -59,6 +64,13 @@
     <EmbeddedResource Update="Resources\About.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>About.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Coding.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Coding.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Coding.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Dog.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
