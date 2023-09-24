@@ -1,4 +1,5 @@
 global using General.Models;
+global using OfFlyingPorkies.BAL;
 global using Microsoft.EntityFrameworkCore;
 using API.Data;
 using API.Services.GeneralService;
@@ -23,7 +24,7 @@ builder.Services.AddDbContext<GeneralContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();

@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,9 +27,13 @@
   <ItemGroup>
     <Reference Include="General">
       <HintPath>..\..\..\DBEntities\General\bin\Release\net7.0\publish\General.dll</HintPath>
+      <Private>True</Private>
+      <Aliases></Aliases>
     </Reference>
     <Reference Include="OfFlyingPorkies">
       <HintPath>..\..\..\DBEntities\DAL\bin\Release\net7.0\OfFlyingPorkies.dll</HintPath>
+      <Private>True</Private>
+      <Aliases></Aliases>
     </Reference>
   </ItemGroup>
 
