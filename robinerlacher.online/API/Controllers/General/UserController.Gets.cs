@@ -1,20 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using API.Data.General;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers.General
 {
     public partial class UserController
     {
         [HttpGet]
-        public async Task<ActionResult<List<User>>> GetAllUsers()
+        public async Task<ActionResult<List<UserDTO>>> GetAllUsers()
         {
-            return Ok(await _userService.GetAllUsers());
+
+            return Ok(await _userService.GetAllAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUserById(int id)
+        public async Task<ActionResult<UserDTO>> GetUserById(int id)
         {
-            User result = await _userService.GetUserById(id);
-            if (result is null)
+            UserDTO result = await _userService.GetByIdAsync(id);
+            if (result == null)
             {
                 return NotFound($"No user with ID {id} found.");
             }
@@ -24,7 +26,7 @@ namespace API.Controllers.General
         [HttpGet("{userId}")]
         public async Task<ActionResult<UserSecurityQuestion>> GetQuestionForUser(int userId)
         {
-            return Ok(await _userService.GetSecurityQuestionForUser(userId));
+            return Ok(await _userService.GetSecurityQuestionForUserAsync(userId));
         }
     }
 }

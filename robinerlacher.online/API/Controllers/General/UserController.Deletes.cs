@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using API.Data.General;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers.General
 {
     public partial class UserController
     {
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<User>>> DeleteUser(int id)
+        public async Task<ActionResult<List<UserDTO>>> DeleteUser(int id)
         {
-            List<User> result = await _userService.DeleteUser(id);
+            List<UserDTO> result = await _userService.DeleteAsync(id);
             if (result is null)
             {
                 return NotFound("User not found");

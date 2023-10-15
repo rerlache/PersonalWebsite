@@ -1,12 +1,18 @@
-﻿namespace API.Services.GeneralService
+﻿using API.Data.General;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
+
+namespace API.Services.GeneralService
 {
     public interface IUserService
     {
-        Task<List<User>> GetAllUsers();
-        Task<User> GetUserById(int id);
-        Task<UserSecurityQuestion> GetSecurityQuestionForUser(int userId);
-        Task<User> AddUser(User user, UserSecurityQuestion question);
-        Task<List<User>> UpdateUser(int id, User user);
-        Task<List<User>> DeleteUser(int id);
+        Task<List<UserDTO>> GetAllAsync();
+        Task<UserDTO> GetByIdAsync(int id);
+        Task<UserSecurityQuestion> GetSecurityQuestionForUserAsync(int userId);
+        Task<UserDTO> AddAsync(User user, UserSecurityQuestion question);
+        Task<UserDTO> UpdateAsync(int id, User user);
+        Task<List<UserDTO>> DeleteAsync(int id);
+        bool UsernameAlreadyUsed(string userName);
+        bool EmailAlreadyUsed(string email);
     }
 }

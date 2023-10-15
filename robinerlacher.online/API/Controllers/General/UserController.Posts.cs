@@ -1,12 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using API.Data.General;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers.General
 {
     public partial class UserController
     {
         [HttpPost]
-        public async Task<ActionResult<User>> AddUser(string firstName, string lastName, string userName, string eMail, string password, string question, string answer)
+        public async Task<ActionResult<UserDTO>> Register(
+            [FromHeader] string firstName,
+            [FromHeader] string lastName, 
+            [FromHeader] string userName, 
+            [FromHeader] string eMail, 
+            [FromHeader] string password, 
+            [FromHeader] string question, 
+            [FromHeader] string answer)
         {
+            if (_userService.EmailAlreadyUsed(eMail))
+            {
+                return BadRequest("Email already used");
+            }
+            if (_userService.UsernameAlreadyUsed(userName))
+            {
+                return BadRequest("username already used");
+            }
             User user = new();
             UserSecurityQuestion userSecQuestion = new();
             userSecQuestion.Question = question;
@@ -18,14 +34,14 @@ namespace API.Controllers.General
             user.Password = password;
             user.RegisterDate = DateTime.Now;
             user.SecurityQuestion = userSecQuestion;
-            User result = await _userService.AddUser(user, userSecQuestion);
+            UserDTO result = await _userService.AddAsync(user, userSecQuestion);
             return Ok(result);
         }
 
         [HttpPost("{id}")]
-        public async Task<ActionResult<User>> UpdateUser(int id, User user)
+        public async Task<ActionResult<UserDTO>> Update(int id, User user)
         {
-            List<User> result = await _userService.UpdateUser(id, user);
+            UserDTO result = await _userService.UpdateAsync(id, user);
             if (result is null)
             {
                 return NotFound("User not found");
