@@ -16,6 +16,7 @@ namespace API.Data
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<UserLoginHistory> UserLoginHistory { get; set; }
         public DbSet<UserSecurityQuestion> UserSecurityQuestions { get; set; }
         public DbSet<Application> Applications { get; set; }
     }
