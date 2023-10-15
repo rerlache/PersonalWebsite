@@ -18,8 +18,10 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
 builder.Services.AddDbContext<GeneralContext>();
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 
