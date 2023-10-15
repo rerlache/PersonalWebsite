@@ -4,6 +4,7 @@ using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(GeneralContext))]
-    partial class GeneralContextModelSnapshot : ModelSnapshot
+    [Migration("20231015120822_UserLoginHistoryAdded")]
+    partial class UserLoginHistoryAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +37,7 @@ namespace API.Migrations
 
                     b.HasIndex("UsersID");
 
-                    b.ToTable("ApplicationUser", (string)null);
+                    b.ToTable("ApplicationUser");
                 });
 
             modelBuilder.Entity("General.Models.Application", b =>
@@ -62,7 +65,7 @@ namespace API.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Applications", (string)null);
+                    b.ToTable("Applications");
                 });
 
             modelBuilder.Entity("General.Models.User", b =>
@@ -102,7 +105,7 @@ namespace API.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("General.Models.UserLoginHistory", b =>
@@ -130,7 +133,7 @@ namespace API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserLoginHistory", (string)null);
+                    b.ToTable("UserLoginHistory");
                 });
 
             modelBuilder.Entity("General.Models.UserSecurityQuestion", b =>
@@ -159,7 +162,7 @@ namespace API.Migrations
                     b.HasIndex("UserID")
                         .IsUnique();
 
-                    b.ToTable("UserSecurityQuestions", (string)null);
+                    b.ToTable("UserSecurityQuestions");
                 });
 
             modelBuilder.Entity("ApplicationUser", b =>
