@@ -9,12 +9,10 @@ namespace API.Controllers.General
     public partial class LoginController : ControllerBase
     {
         private readonly ILoginService _loginService;
-        private readonly IMapper _mapper;
 
-        public LoginController(ILoginService applicationService, IMapper mapper)
+        public LoginController(ILoginService applicationService)
         {
             _loginService = applicationService;
-            _mapper = mapper;
         }
     }
 }
