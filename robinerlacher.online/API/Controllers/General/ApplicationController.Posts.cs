@@ -1,16 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers.General
 {
     public partial class ApplicationController
     {
+        [EnableCors]
         [HttpPost]
-        public async Task<ActionResult<Application>> AddApplication(string name, string description, string url)
+        public async Task<ActionResult<Application>> AddApplication([FromBody] Application app)
         {
-            Application application = new Application(){ Name = name, Description = description, Url = url};
-            Application result = await _applicationService.AddApplicationAsync(application);
+            Application result = await _applicationService.AddApplicationAsync(app);
             return Ok(result);
         }
+        [EnableCors]
         [HttpPost("{id}")]
         public async Task<ActionResult<Application>> UpdateApplication(int id, string name = "", string description = "", string url = "")
         {

@@ -1,10 +1,12 @@
 ﻿using API.Data.General;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers.General
 {
     public partial class UserController
     {
+        [EnableCors]
         [HttpPost]
         public async Task<ActionResult<UserDTO>> Register(
             [FromHeader] string firstName,
@@ -38,6 +40,7 @@ namespace API.Controllers.General
             return Ok(result);
         }
 
+        [EnableCors]
         [HttpPost("{id}")]
         public async Task<ActionResult<UserDTO>> Update(int id, User user)
         {
