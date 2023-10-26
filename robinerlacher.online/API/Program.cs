@@ -16,11 +16,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-        policy =>
-        {
-            policy.WithOrigins("https://localhost", "https://apps.robinerlacher.online", "http://localhost:5173").AllowAnyHeader().AllowAnyMethod();
-        });
+    options.AddPolicy(name: MyAllowSpecificOrigins, policy => policy
+        //.WithOrigins("https://localhost", "https://apps.robinerlacher.online", "http://localhost:5173", "https://*:5173", "https://atws2071:5250", "http://10.10.3.77:5173")
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowAnyOrigin()
+        );
 });
 
 builder.Services.AddControllers();
