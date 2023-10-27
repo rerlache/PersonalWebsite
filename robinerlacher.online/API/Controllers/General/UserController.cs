@@ -1,6 +1,7 @@
 ﻿using API.Services.GeneralService;
 using AutoMapper;
 using General.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace API.Controllers.General
 {
     [ApiController]
     [Route("general/[controller]/[action]")]
+    [Authorize]
     public partial class UserController : ControllerBase
     {
         private readonly IUserService _userService;

@@ -31,7 +31,7 @@ namespace API.Helpers
 
             SigningCredentials cred = new(key, SecurityAlgorithms.HmacSha256);
 
-            DateTime expire = DateTime.Now.AddDays(Convert.ToDouble(_configuration["JWTExpire"]));
+            DateTime expire = DateTime.Now.AddMinutes(Convert.ToDouble(_configuration["JWTExpire"]));
 
             JwtSecurityToken jwtToken = new(
                 _configuration["JWTIssuer"],
