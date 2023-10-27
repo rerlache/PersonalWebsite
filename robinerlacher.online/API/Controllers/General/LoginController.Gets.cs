@@ -26,7 +26,7 @@ namespace API.Controllers.General
         [AllowAnonymous]
         public async Task<ActionResult<Tuple<string, UserDTO>>> WithData([FromHeader] string userName, [FromHeader] string password)
         {
-            string ip = Request.HttpContext?.Request.Headers["X-Forwarded-For"].ToString();
+            string ip = HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
             if (ip == null)
             {
                 ip = HttpContext.GetServerVariable("REMOTE_ADDR");

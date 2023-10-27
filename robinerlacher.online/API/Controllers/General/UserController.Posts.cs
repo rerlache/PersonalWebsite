@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers.General
 {
-    [EnableCors]
     public partial class UserController
     {
         [HttpPost]
