@@ -1,4 +1,5 @@
 ﻿using API.Data.General;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,15 +7,15 @@ namespace API.Controllers.General
 {
     public partial class UserController
     {
-        [EnableCors]
         [HttpPost]
+        [AllowAnonymous]
         public async Task<ActionResult<UserDTO>> Register(
             [FromHeader] string firstName,
-            [FromHeader] string lastName, 
-            [FromHeader] string userName, 
-            [FromHeader] string eMail, 
-            [FromHeader] string password, 
-            [FromHeader] string question, 
+            [FromHeader] string lastName,
+            [FromHeader] string userName,
+            [FromHeader] string eMail,
+            [FromHeader] string password,
+            [FromHeader] string question,
             [FromHeader] string answer)
         {
             if (_userService.EmailAlreadyUsed(eMail))
@@ -40,7 +41,6 @@ namespace API.Controllers.General
             return Ok(result);
         }
 
-        [EnableCors]
         [HttpPost("{id}")]
         public async Task<ActionResult<UserDTO>> Update(int id, User user)
         {

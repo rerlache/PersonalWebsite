@@ -1,5 +1,6 @@
 ﻿using API.Data.General;
 using API.Services.GeneralService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -22,9 +23,10 @@ namespace API.Controllers.General
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<Tuple<string, UserDTO>>> WithData([FromHeader] string userName, [FromHeader] string password)
         {
-            string ip = Request.HttpContext?.Request.Headers["X-Forwarded-For"].ToString();
+            string ip = HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
             if (ip == null)
             {
                 ip = HttpContext.GetServerVariable("REMOTE_ADDR");
@@ -36,6 +38,7 @@ namespace API.Controllers.General
             }
             return Ok(new Tuple<string, UserDTO>(result.Item1, result.Item2));
         }
+
         [HttpGet]
         public async Task<ActionResult<UserDTO>> WithToken([FromHeader] string token)
         {
