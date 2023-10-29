@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 
 namespace API.Controllers.General
 {
@@ -55,8 +56,9 @@ namespace API.Controllers.General
             return Ok(result);
         }
         [HttpGet]
-        public async Task<ActionResult<List<UserLoginHistoryDTO>>> GetHistory([FromHeader] int userId)
+        public async Task<ActionResult<List<UserLoginHistoryDTO>>> GetHistory([FromHeader] string userName)
         {
+            int userId = await _userService.GetUserIdByUsername(userName);
             return Ok(await _loginService.GetLoginHistoryAsync(userId));
         }
     }
