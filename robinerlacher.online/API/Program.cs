@@ -16,11 +16,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: MyAllowSpecificOrigins, policy => policy
-        //.WithOrigins("https://localhost", "https://apps.robinerlacher.online", "http://localhost:5173", "https://*:5173", "https://atws2071:5250", "http://10.10.3.77:5173")
-        .AllowAnyHeader()
-        .AllowAnyMethod()
-        .AllowAnyOrigin()
+    options.AddPolicy(name: MyAllowSpecificOrigins, policy =>
+        policy
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowAnyOrigin()
         );
 });
 
@@ -33,11 +33,27 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddDbContext<GeneralContext>(options =>
+        options.UseSqlServer(
+            builder.Configuration.GetConnectionString("DEV")),
+            ServiceLifetime.Scoped
+        );
+}
+else
+{
+    builder.Services.AddDbContext<GeneralContext>(options =>
+        options.UseSqlServer(
+            builder.Configuration.GetConnectionString("LIVE")),
+            ServiceLifetime.Scoped
+            );
+}
+
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
-builder.Services.AddDbContext<GeneralContext>();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddTransient<ITokenGenerator, TokenGenerator>();
 
@@ -59,15 +75,31 @@ builder.Services.AddAuthentication(opt => opt.DefaultScheme = JwtBearerDefaults.
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+if (app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+// Enable PNA preflight requests
+app.Use(async (ctx, next) =>
+{
+    if (ctx.Request.Method.Equals("options", StringComparison.InvariantCultureIgnoreCase) && ctx.Request.Headers.ContainsKey("Access-Control-Request-Private-Network"))
+    {
+        ctx.Response.Headers.Add("Access-Control-Allow-Private-Network", "true");
+    }
+
+    await next();
+});
+
 app.UseCors(MyAllowSpecificOrigins);
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

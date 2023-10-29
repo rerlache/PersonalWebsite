@@ -13,53 +13,10 @@ namespace API.Controllers.General
 {
     public partial class LoginController
     {
-        private string GetIp()
-        {
-            string ip = Request.HttpContext?.Request.Headers["X-Forwarded-For"].ToString();
-            if (ip == null)
-            {
-                ip = HttpContext.GetServerVariable("REMOTE_ADDR");
-            }
-            return ip;
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<ActionResult<Tuple<string, UserDTO>>> WithData([FromHeader] string userName, [FromHeader] string password)
-        {
-            string ip = HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
-            if (ip == null)
-            {
-                ip = HttpContext.GetServerVariable("REMOTE_ADDR");
-            }
-            Tuple<string, UserDTO> result = await _loginService.WithDataAsync(userName, password, ip);
-            if (result.Item2 == null)
-            {
-                return BadRequest(result.Item1);
-            }
-            return Ok(new Tuple<string, UserDTO>(result.Item1, result.Item2));
-        }
-
-        [HttpGet]
-        public async Task<ActionResult<UserDTO>> WithToken([FromHeader] string token)
-        {
-            string ip = Request.HttpContext?.Request.Headers["X-Forwarded-For"].ToString();
-            if (ip == null)
-            {
-                ip = HttpContext.GetServerVariable("REMOTE_ADDR");
-            }
-            UserDTO result = await _loginService.WithTokenAsync(token, ip);
-            if(result ==  null)
-            {
-                return BadRequest();
-            }
-            return Ok(result);
-        }
         [HttpGet]
         public async Task<ActionResult<List<UserLoginHistoryDTO>>> GetHistory([FromHeader] string userName)
         {
-            int userId = await _userService.GetUserIdByUsername(userName);
-            return Ok(await _loginService.GetLoginHistoryAsync(userId));
+            return Ok(await _loginService.GetLoginHistoryAsync(userName));
         }
     }
 }

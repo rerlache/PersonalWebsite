@@ -91,6 +91,11 @@ namespace API.Services.GeneralService
             return user != null;
         }
 
+        public async Task<int> GetUserIdByUsername(string username)
+        {
+            return _context.Users.Where(u => u.UserName == username).FirstOrDefaultAsync().Id;
+        }
+
         #endregion
 
 

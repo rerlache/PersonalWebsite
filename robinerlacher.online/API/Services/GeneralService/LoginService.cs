@@ -35,27 +35,33 @@ namespace API.Services.GeneralService
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<UserLoginHistoryDTO>> GetLoginHistoryAsync(int userId)
+        public async Task<List<UserLoginHistoryDTO>> GetLoginHistoryAsync(string userName)
         {
+            User? user = await _context.Users.Where(u => u.UserName == userName).FirstOrDefaultAsync();
+            if(user == null)
+            {
+                return new List<UserLoginHistoryDTO>();
+            }
+            int userId = user.ID;
             return _mapper.Map<List<UserLoginHistoryDTO>>( await _context.UserLoginHistory.Where(i => i.UserId == userId).OrderByDescending(h => h.LoginDate).ToListAsync());
         }
 
-        public async Task<Tuple<string, UserDTO>> WithDataAsync(string userName, string password, string ip)
+        public async Task<Tuple<string, UserDTO>> WithDataAsync(LoginDTO login, string ip)
         {
-            User user = await _context.Users.Where(u => u.UserName == userName).FirstOrDefaultAsync();
+            User? user = await _context.Users.Where(u => u.UserName == login.userName).FirstOrDefaultAsync();
             if (user == null)
             {
-                return new Tuple<string, UserDTO>($"{userName} not found", null);
+                return new Tuple<string, UserDTO>($"{login.userName} not found", null);
             }
             string passFromDb = user.Password;
-            string saltedPass = user.RegisterDate + password;
+            string saltedPass = user.RegisterDate + login.password;
             bool isPassCorrect = BCrypt.Net.BCrypt.Verify(saltedPass, passFromDb);
             await LogHistory(user, isPassCorrect, ip);
             if (!isPassCorrect)
             {
                 return new Tuple<string, UserDTO>($"password for {user.UserName} incorrect", null);
             }
-            string token = _tokenGenerator.GetToken(userName);
+            string token = _tokenGenerator.GetToken(login.userName);
             return new Tuple<string, UserDTO>(token, _mapper.Map<UserDTO>(user)); // TODO: return a token here.
         }
 
@@ -72,7 +78,7 @@ namespace API.Services.GeneralService
             };
             var claims = handler.ValidateToken(token, validations, out var tokenSecure);
             string userName = ((JwtSecurityToken)tokenSecure).Subject;
-            User user = await _context.Users.Where(u => u.UserName == userName).FirstOrDefaultAsync();
+            User? user = await _context.Users.Where(u => u.UserName == userName).FirstOrDefaultAsync();
 
             if (user == null)
             {

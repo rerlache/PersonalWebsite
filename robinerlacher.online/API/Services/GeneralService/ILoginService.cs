@@ -4,8 +4,8 @@ namespace API.Services.GeneralService
 {
     public interface ILoginService
     {
-        Task<List<UserLoginHistoryDTO>> GetLoginHistoryAsync(int userId);
-        Task<Tuple<string, UserDTO>> WithDataAsync(string userName, string password, string ip);
+        Task<List<UserLoginHistoryDTO>> GetLoginHistoryAsync(string userName);
+        Task<Tuple<string, UserDTO>> WithDataAsync(LoginDTO login, string ip);
         Task<UserDTO> WithTokenAsync(string token, string ip);
     }
 }

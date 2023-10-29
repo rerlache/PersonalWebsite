@@ -9,32 +9,25 @@ namespace API.Controllers.General
     {
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult<UserDTO>> Register(
-            [FromHeader] string firstName,
-            [FromHeader] string lastName,
-            [FromHeader] string userName,
-            [FromHeader] string eMail,
-            [FromHeader] string password,
-            [FromHeader] string question,
-            [FromHeader] string answer)
+        public async Task<ActionResult<UserDTO>> Register([FromBody] RegisterDTO register)
         {
-            if (_userService.EmailAlreadyUsed(eMail))
+            if (_userService.EmailAlreadyUsed(register.eMail))
             {
                 return BadRequest("Email already used");
             }
-            if (_userService.UsernameAlreadyUsed(userName))
+            if (_userService.UsernameAlreadyUsed(register.userName))
             {
                 return BadRequest("username already used");
             }
             User user = new();
             UserSecurityQuestion userSecQuestion = new();
-            userSecQuestion.Question = question;
-            userSecQuestion.Answer = answer;
-            user.FirstName = firstName;
-            user.LastName = lastName;
-            user.UserName = userName;
-            user.Email = eMail;
-            user.Password = password;
+            userSecQuestion.Question = register.question;
+            userSecQuestion.Answer = register.answer;
+            user.FirstName = register.firstName;
+            user.LastName = register.lastName;
+            user.UserName = register.userName;
+            user.Email = register.eMail;
+            user.Password = register.password;
             user.RegisterDate = DateTime.Now;
             user.SecurityQuestion = userSecQuestion;
             UserDTO result = await _userService.AddAsync(user, userSecQuestion);

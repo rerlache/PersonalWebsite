@@ -12,7 +12,19 @@ namespace API.Helpers
         }
         void UserDTOMapping()
         {
-            CreateMap<User, UserDTO>();
+            CreateMap<User, UserDTO>()
+                .ForMember(
+                    x => x.Apps,
+                    opt =>
+                        opt.MapFrom(src => 
+                            src.AssignedApps)
+                )
+                .ForMember(
+                    x => x.LoginHistory, 
+                    opt => 
+                        opt.MapFrom(src => 
+                            src.UserLoginHistory)
+                );
         }
         void LoginHistoryDTOMapping()
         {

@@ -12,7 +12,6 @@ namespace API.Controllers.General
     [Route("general/[controller]/[action]")]
     [Authorize]
     [EnableCors]
-
     public partial class UserController : ControllerBase
     {
         private readonly IUserService _userService;

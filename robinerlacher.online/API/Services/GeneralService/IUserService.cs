@@ -8,6 +8,7 @@ namespace API.Services.GeneralService
     {
         Task<List<UserDTO>> GetAllAsync();
         Task<UserDTO> GetByIdAsync(int id);
+        Task<int> GetUserIdByUsername(string username);
         Task<UserSecurityQuestion> GetSecurityQuestionForUserAsync(int userId);
         Task<UserDTO> AddAsync(User user, UserSecurityQuestion question);
         Task<UserDTO> UpdateAsync(int id, User user);
