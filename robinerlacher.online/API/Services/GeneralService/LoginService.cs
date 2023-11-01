@@ -48,7 +48,7 @@ namespace API.Services.GeneralService
 
         public async Task<Tuple<string, UserDTO>> WithDataAsync(LoginDTO login, string ip)
         {
-            User? user = await _context.Users.Where(u => u.UserName == login.userName).FirstOrDefaultAsync();
+            User? user = await _context.Users.Include(u => u.AssignedApps).Where(u => u.UserName == login.userName).FirstOrDefaultAsync();
             if (user == null)
             {
                 return new Tuple<string, UserDTO>($"{login.userName} not found", null);

@@ -13,6 +13,7 @@ namespace API.Services.GeneralService
         Task<UserDTO> AddAsync(User user, UserSecurityQuestion question);
         Task<UserDTO> UpdateAsync(int id, User user);
         Task<List<UserDTO>> DeleteAsync(int id);
+        Task<UserDTO> AssignAppToUser(int appId, int userId);
         bool UsernameAlreadyUsed(string userName);
         bool EmailAlreadyUsed(string email);
     }

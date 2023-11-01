@@ -4,11 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers.General
 {
-    [EnableCors]
-    //[Authorize(Roles = "Admin")]
     public partial class ApplicationController
     {
         [HttpPost]
+        //[Authorize(Roles = "Admin")]
         public async Task<ActionResult<Application>> AddApplication([FromBody] Application app)
         {
             Application result = await _applicationService.AddApplicationAsync(app);

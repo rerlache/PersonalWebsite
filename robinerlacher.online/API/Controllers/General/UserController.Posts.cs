@@ -44,5 +44,16 @@ namespace API.Controllers.General
             }
             return Ok(result);
         }
+
+        [HttpPost]
+        public async Task<ActionResult<UserDTO>> SignUpApp([FromBody] AppUserDTO ids)
+        {
+            UserDTO? user = await _userService.AssignAppToUser(ids.AppId, ids.UserId);
+            if (user is null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
     }
 }

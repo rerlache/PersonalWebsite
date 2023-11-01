@@ -1,7 +1,4 @@
 ﻿using API.Data;
-using System.Net.Sockets;
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
 using API.Data.General;
 using AutoMapper;
 
@@ -94,6 +91,20 @@ namespace API.Services.GeneralService
         public async Task<int> GetUserIdByUsername(string username)
         {
             return _context.Users.Where(u => u.UserName == username).FirstOrDefaultAsync().Id;
+        }
+
+        public async Task<UserDTO> AssignAppToUser(int appId, int userId)
+        {
+            Application? app = await _context.Applications.FindAsync(appId);
+            User? user = await _context.Users.FindAsync(userId);
+            if (app == null || user == null)
+            {
+                return new();
+            }
+            user.AssignedApps?.Add(app);
+            app.Users?.Add(user);
+            await _context.SaveChangesAsync();
+            return _mapper.Map<UserDTO>(user);
         }
 
         #endregion

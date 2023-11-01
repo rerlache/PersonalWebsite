@@ -1,14 +1,18 @@
 ﻿using API.Data;
+using API.Data.General;
+using AutoMapper;
 
 namespace API.Services.GeneralService
 {
     public class ApplicationService : IApplicationService
     {
         private readonly GeneralContext _context;
+        private readonly IMapper _mapper;
 
-        public ApplicationService(GeneralContext context)
+        public ApplicationService(GeneralContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         public async Task<List<Application>> GetAllApplicationsAsync()
         {
