@@ -55,5 +55,17 @@ namespace API.Controllers.General
             }
             return Ok(user);
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<ActionResult<UserDTO>> ResetPassword([FromBody] PasswordResetDTO passwordReset)
+        {
+            UserDTO result = await _userService.ResetPassword(passwordReset);
+            if (result is null)
+            {
+                return BadRequest("couldn't reset password");
+            }
+            return Ok(result);
+        }
     }
 }

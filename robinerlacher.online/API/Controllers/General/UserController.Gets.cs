@@ -24,10 +24,39 @@ namespace API.Controllers.General
             return Ok(result);
         }
 
-        [HttpGet("{userId}")]
-        public async Task<ActionResult<UserSecurityQuestion>> GetQuestionForUser(int userId)
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<ActionResult<string>> GetQuestionForUser([FromHeader] string username, [FromHeader] string email)
         {
-            return Ok(await _userService.GetSecurityQuestionForUserAsync(userId));
+            PasswordResetDTO passwordResetDTO = new PasswordResetDTO();
+            passwordResetDTO.Username = username;
+            passwordResetDTO.Email = email;
+            string? question = await _userService.GetSecurityQuestionForUserAsync(passwordResetDTO);
+            if (String.IsNullOrEmpty(question))
+            {
+                return NotFound("username/email combination not found");
+            }
+            return Ok(question);
+        }
+
+        [HttpGet()]
+        [AllowAnonymous]
+        public async Task<ActionResult<bool>> CheckAnswer([FromHeader] string username, [FromHeader] string answer)
+        {
+            PasswordResetDTO passwordResetDTO = new();
+            passwordResetDTO.Username = username;
+            passwordResetDTO.Answer = answer;
+            int userId = await _userService.GetUserIdByUsername(passwordResetDTO.Username);
+            if(userId == -1)
+            {
+                return BadRequest("user not found");
+            }
+            bool answeredCorrect = await _userService.CheckAnswerToQuestion(userId, passwordResetDTO);
+            if(!answeredCorrect)
+            {
+                return BadRequest("wrong answer");
+            }
+            return Ok("everything is fine, proceed with pw reset");
         }
     }
 }

@@ -39,7 +39,7 @@ namespace API.Services.GeneralService
 
         public async Task<List<UserDTO>> DeleteAsync(int id)
         {
-            User user = await _context.Users.FindAsync(id);
+            User? user = await _context.Users.FindAsync(id);
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
             return _mapper.Map<List<UserDTO>>(_context.Users.ToList());
@@ -50,10 +50,15 @@ namespace API.Services.GeneralService
             return _mapper.Map<List<UserDTO>>(await _context.Users.Include(u => u.SecurityQuestion).Include(a => a.AssignedApps).ToListAsync());
         }
 
-        public async Task<UserSecurityQuestion> GetSecurityQuestionForUserAsync(int userId)
+        public async Task<string> GetSecurityQuestionForUserAsync(PasswordResetDTO passwordResetDTO)
         {
-            UserSecurityQuestion question = await _context.UserSecurityQuestions.Where(q => q.UserID == userId).FirstAsync();
-            return question;
+            User? user = await _context.Users.Where(u => u.UserName == passwordResetDTO.Username && u.Email == passwordResetDTO.Email).FirstOrDefaultAsync();
+            if (user == null)
+            {
+                return string.Empty;
+            }
+            UserSecurityQuestion? question = await _context.UserSecurityQuestions.Where(q => q.UserID == user.ID).FirstAsync();
+            return question.Question;
         }
 
         public async Task<UserDTO> GetByIdAsync(int id)
@@ -63,7 +68,7 @@ namespace API.Services.GeneralService
 
         public async Task<UserDTO> UpdateAsync(int id, User user)
         {
-            User updatedUser = await _context.Users.FindAsync(id);
+            User? updatedUser = await _context.Users.FindAsync(id);
             if (updatedUser == null)
             {
                 return null;
@@ -79,18 +84,23 @@ namespace API.Services.GeneralService
 
         public bool UsernameAlreadyUsed(string userName)
         {
-            User user = _context.Users.FirstOrDefault(u => u.UserName == userName);
+            User? user = _context.Users.FirstOrDefault(u => u.UserName == userName);
             return user != null;
         }
         public bool EmailAlreadyUsed(string email)
         {
-            User user = _context.Users.FirstOrDefault(u => u.Email == email);
+            User? user = _context.Users.FirstOrDefault(u => u.Email == email);
             return user != null;
         }
 
         public async Task<int> GetUserIdByUsername(string username)
         {
-            return _context.Users.Where(u => u.UserName == username).FirstOrDefaultAsync().Id;
+            User? user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == username);
+            if (user == null)
+            {
+                return -1;
+            }
+            return user.ID;
         }
 
         public async Task<UserDTO> AssignAppToUser(int appId, int userId)
@@ -107,6 +117,33 @@ namespace API.Services.GeneralService
             return _mapper.Map<UserDTO>(user);
         }
 
+        public async Task<bool> CheckAnswerToQuestion(int userId, PasswordResetDTO passwordResetDTO)
+        {
+            UserSecurityQuestion? qAModel = await _context.UserSecurityQuestions.Where(q => q.UserID == userId).FirstOrDefaultAsync();
+            if (qAModel == null)
+            {
+                return false;
+            }
+            if (qAModel.Answer != passwordResetDTO.Answer)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<UserDTO> ResetPassword(PasswordResetDTO dTO)
+        {
+            UserDTO response = new();
+            User? user = await _context.Users.Where(u => u.UserName == dTO.Username && u.Email == dTO.Email).FirstOrDefaultAsync();
+            if (user == null)
+            {
+                return new();
+            }
+            user.Password = GetHashedPassword(user.RegisterDate, dTO.Password);
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+            return _mapper.Map<UserDTO>(user);
+        }
         #endregion
 
 
