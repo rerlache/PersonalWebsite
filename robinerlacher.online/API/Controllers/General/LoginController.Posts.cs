@@ -27,20 +27,5 @@ namespace API.Controllers.General
             return Ok(new Tuple<string, UserDTO>(result.Item1, result.Item2));
         }
 
-        [HttpPost]
-        public async Task<ActionResult<UserDTO>> WithToken([FromBody] string token)
-        {
-            string? ip = HttpContext.Connection.RemoteIpAddress.ToString();
-            if (ip == "127.0.0.1")
-            {
-                ip = HttpContext.GetServerVariable("REMOTE_ADDR");
-            }
-            UserDTO result = await _loginService.WithTokenAsync(token, ip);
-            if (result == null)
-            {
-                return BadRequest();
-            }
-            return Ok(result);
-        }
     }
 }

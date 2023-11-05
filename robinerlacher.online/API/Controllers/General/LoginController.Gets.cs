@@ -18,5 +18,22 @@ namespace API.Controllers.General
         {
             return Ok(await _loginService.GetLoginHistoryAsync(userName));
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<ActionResult<UserDTO>> WithToken([FromHeader] string token)
+        {
+            string? ip = HttpContext.Connection?.RemoteIpAddress?.ToString();
+            if (ip == "127.0.0.1")
+            {
+                ip = HttpContext.GetServerVariable("REMOTE_ADDR");
+            }
+            UserDTO result = await _loginService.WithTokenAsync(token, ip);
+            if (result == null)
+            {
+                return BadRequest();
+            }
+            return Ok(result);
+        }
     }
 }

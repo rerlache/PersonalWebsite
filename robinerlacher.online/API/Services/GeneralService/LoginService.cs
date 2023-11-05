@@ -62,7 +62,9 @@ namespace API.Services.GeneralService
                 return new Tuple<string, UserDTO>($"password for {user.UserName} incorrect", null);
             }
             string token = _tokenGenerator.GetToken(login.userName);
-            return new Tuple<string, UserDTO>(token, _mapper.Map<UserDTO>(user)); // TODO: return a token here.
+            UserDTO returnUser = _mapper.Map<UserDTO>(user);
+            returnUser.AccessToken = token;
+            return new Tuple<string, UserDTO>(token, returnUser); // TODO: return a token here.
         }
 
         public async Task<UserDTO> WithTokenAsync(string token, string ip)
