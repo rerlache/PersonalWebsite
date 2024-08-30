@@ -15,13 +15,15 @@ namespace API.Services.GeneralService
         private readonly IMapper _mapper;
         private readonly ITokenGenerator _tokenGenerator;
         private readonly IConfiguration _config;
+        private readonly IKeyStoreService _keyStoreService;
 
-        public LoginService(GeneralContext context, IMapper mapper, ITokenGenerator tokenGenerator, IConfiguration config)
+        public LoginService(GeneralContext context, IMapper mapper, ITokenGenerator tokenGenerator, IConfiguration config, IKeyStoreService keyStoreService)
         {
             _context = context;
             _mapper = mapper;
             _tokenGenerator = tokenGenerator;
             _config = config;
+            _keyStoreService = keyStoreService;
         }
 
         private async Task LogHistory(User user, bool isPassCorrect, string ip)
@@ -38,12 +40,12 @@ namespace API.Services.GeneralService
         public async Task<List<UserLoginHistoryDTO>> GetLoginHistoryAsync(string userName)
         {
             User? user = await _context.Users.Where(u => u.UserName == userName).FirstOrDefaultAsync();
-            if(user == null)
+            if (user == null)
             {
                 return new List<UserLoginHistoryDTO>();
             }
             int userId = user.ID;
-            return _mapper.Map<List<UserLoginHistoryDTO>>( await _context.UserLoginHistory.Where(i => i.UserId == userId).OrderByDescending(h => h.LoginDate).ToListAsync());
+            return _mapper.Map<List<UserLoginHistoryDTO>>(await _context.UserLoginHistory.Where(i => i.UserId == userId).OrderByDescending(h => h.LoginDate).ToListAsync());
         }
 
         public async Task<Tuple<string, UserDTO>> WithDataAsync(LoginDTO login, string ip)
@@ -71,23 +73,42 @@ namespace API.Services.GeneralService
         {
             UserDTO result = new();
             JwtSecurityTokenHandler handler = new();
-            var validations = new TokenValidationParameters
+            var key = Encoding.UTF8.GetBytes(_config["JWTKey"]);
+
+            var tokenValidationParameters = new TokenValidationParameters
             {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
                 ValidIssuer = _config["JWTIssuer"],
                 ValidAudience = _config["JWTIssuer"],
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWTKey"])),
-                ClockSkew = TimeSpan.Zero
+                IssuerSigningKeyResolver = (token, securityToken, kid, validationParameters) =>
+                {
+                    // Resolve the signing key based on the 'kid'
+                    return new List<SecurityKey> { _keyStoreService.GetKey(kid) };
+                }
+                //IssuerSigningKey = (new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWTKey"])))
+                //ClockSkew = TimeSpan.Zero
             };
-            var claims = handler.ValidateToken(token, validations, out var tokenSecure);
-            string userName = ((JwtSecurityToken)tokenSecure).Subject;
-            User? user = await _context.Users.Where(u => u.UserName == userName).FirstOrDefaultAsync();
 
-            if (user == null)
+            try
             {
-                return result;
+                var claims = handler.ValidateToken(token, tokenValidationParameters, out var tokenSecure);
+                string userName = ((JwtSecurityToken)tokenSecure).Subject;
+                User? user = await _context.Users.Where(u => u.UserName == userName).FirstOrDefaultAsync();
+
+                if (user == null)
+                {
+                    return result;
+                }
+                await LogHistory(user, true, ip);
+                result = _mapper.Map<UserDTO>(user);
             }
-            await LogHistory(user, true, ip);
-            result = _mapper.Map<UserDTO>(user);
+            catch (SecurityTokenException ex)
+            {
+            }
+
             return result;
         }
     }
