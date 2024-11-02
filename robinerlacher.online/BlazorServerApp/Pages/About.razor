@@ -42,7 +42,17 @@
                 Some organizational changes later, I'm out of the IT department and work together with a few Developers. Which opened my eyes, how cool it is. This is how i got into programming.
                 Soon i also got more familiar with PowerApps which was quite like my "Developer Entry Point".
             </Paragraph>
+            <Paragraph>
+                After about 3 years, i moved back to IT as Cloud Administrator, responsible for mostly the Microsoft Stack. 
+                Also started the C# Developer course the longer the course took, the more i wanted to change my career from Administration to Development.
+                As IT isn't really responsible for developing software, i had to search for a new path.
+            </Paragraph>
+            <Paragraph>
+                Which i found in another department at MED-EL. So now i'm able to develop software, get more into SW-Development and learning new languages.
+            </Paragraph>
+        </Column>
 
+        <Column ColumnSize="ColumnSize.Is6.OnDesktop.Is12.OnMobile" TextAlignment="TextAlignment.Start">
             <JumbotronSubtitle TextAlignment="TextAlignment.Center" Background="Background.Dark" TextColor="TextColor.White">
                 Private me
             </JumbotronSubtitle>
@@ -106,6 +116,21 @@
                     <TimelineItem Title="@Resources.About._202110Title" Time="01.10.2021">
                         @((MarkupString)Resources.About._202110Body)
                     </TimelineItem>
+                    @{ #if DEBUG }
+                    <TimelineItem Title="Developer Job" Time="01.05.2022">
+                        After finishing the C# Developer course, i started a new Job as a Developer and started with the first Project right away.
+                    </TimelineItem>
+                    <TimelineItem Title="react" Time="01.02.2023">
+                        As i wanted to know another language, i started learning react and update my CSS know-how. Just a few months later, i assisted a project by implementing API functions in a node.js project.
+                    </TimelineItem>
+                    <TimelineItem Title="Gamedev" Time="01.10.2023">
+                        For the cold winter months i wanted some challenges, so i started my first Game development course on gamedev.tv.
+                        Besides that, i ordered a Blender course, to be able to make my own assets.
+                    </TimelineItem>
+                    <TimelineItem Title="22 years MED-EL" Time="01.12.2024">
+                        Celebrating 22 years working for/at MED-EL in Innsbruck.
+                    </TimelineItem>
+                    @{ #endif }
                 </div>
             </Timeline>
         </Column>
