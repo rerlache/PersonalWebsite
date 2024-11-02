@@ -32,27 +32,20 @@ namespace API.Helpers
                 new Claim(ClaimTypes.NameIdentifier, username)
             };
 
-            string keyString = _configuration["JWTKey"];
-            byte[] keyBytes = Encoding.UTF8.GetBytes(keyString);
+            string keyString = _configuration["JWT:Key"];
 
-            if (keyBytes.Length < 32)
-            {
-                keyBytes = new byte[32];
-                RandomNumberGenerator.Fill(keyBytes);
-            }
-
-            SymmetricSecurityKey key = new(keyBytes);
+            SymmetricSecurityKey key = new(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));
             
             SigningCredentials cred = new(key, SecurityAlgorithms.HmacSha256);
 
-            DateTime expire = DateTime.Now.AddMinutes(Convert.ToDouble(_configuration["JWTExpire"]));
+            DateTime expire = DateTime.Now.AddMinutes(Convert.ToDouble(_configuration["JWT:Expire"]));
 
             JwtHeader header = new(cred);
             header["kid"] = Guid.NewGuid().ToString();
 
             JwtPayload payload = new(
-                _configuration["JWTIssuer"],
-                _configuration["JWTIssuer"],
+                _configuration["JWT:Issuer"],
+                _configuration["JWT:Audience"],
                 claims,
                 notBefore: DateTime.Now,
                 expires: expire

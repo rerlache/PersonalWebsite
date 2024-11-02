@@ -60,18 +60,27 @@ builder.Services.AddTransient<ITokenGenerator, TokenGenerator>();
 
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
-builder.Services.AddAuthentication(opt => opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(cfg =>
-{
-    cfg.SaveToken = true;
-    cfg.RequireHttpsMetadata = true;
-    cfg.TokenValidationParameters = new TokenValidationParameters
+builder.Services.AddAuthentication(opt =>
     {
-        ValidIssuer = builder.Configuration["JWTIssuer"],
-        ValidAudience = builder.Configuration["JWTIssuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWTKey"])),
-        ClockSkew = TimeSpan.Zero
-    };
-});
+        opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(cfg =>
+    {
+        cfg.SaveToken = true;
+        cfg.RequireHttpsMetadata = false;
+        cfg.IncludeErrorDetails = true;
+        cfg.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidIssuer = builder.Configuration["JWT:Issuer"],
+            ValidAudience = builder.Configuration["JWT:Audience"],
+            ClockSkew = TimeSpan.Zero,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"])),
+        };
+    });
 
 var app = builder.Build();
 
@@ -100,8 +109,8 @@ app.Use(async (ctx, next) =>
 
 app.UseCors(MyAllowSpecificOrigins);
 
-//app.UseHttpsRedirection();
-
+app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

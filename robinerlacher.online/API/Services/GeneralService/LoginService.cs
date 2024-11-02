@@ -73,7 +73,8 @@ namespace API.Services.GeneralService
         {
             UserDTO result = new();
             JwtSecurityTokenHandler handler = new();
-            var key = Encoding.UTF8.GetBytes(_config["JWTKey"]);
+            var temp = _config["JWT:Key"];
+            var key = Encoding.UTF8.GetBytes(_config["JWT:Key"]);
 
             var tokenValidationParameters = new TokenValidationParameters
             {
@@ -81,15 +82,15 @@ namespace API.Services.GeneralService
                 ValidateAudience = true,
                 ValidateLifetime = true,
                 ValidateIssuerSigningKey = true,
-                ValidIssuer = _config["JWTIssuer"],
-                ValidAudience = _config["JWTIssuer"],
+                ValidIssuer = _config["JWT:Issuer"],
+                ValidAudience = _config["JWT:Audience"],
                 IssuerSigningKeyResolver = (token, securityToken, kid, validationParameters) =>
                 {
                     // Resolve the signing key based on the 'kid'
                     return new List<SecurityKey> { _keyStoreService.GetKey(kid) };
-                }
-                //IssuerSigningKey = (new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWTKey"])))
-                //ClockSkew = TimeSpan.Zero
+                },
+                IssuerSigningKey = (new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWT:Key"]))),
+                ClockSkew = TimeSpan.Zero
             };
 
             try
