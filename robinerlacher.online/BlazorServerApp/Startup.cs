@@ -54,7 +54,7 @@ namespace BlazorServerApp
             });
             // endregion
 
-            services.AddBlazorise(options => { options.ChangeTextOnKeyPress = true; }).AddBootstrapProviders().AddFontAwesomeIcons();
+            services.AddBlazorise(options => { options.Immediate = true; }).AddBootstrapProviders().AddFontAwesomeIcons();
 
             
 

@@ -54,6 +54,7 @@ else
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
+builder.Services.AddSingleton<IKeyStoreService, KeyStoreService>();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddTransient<ITokenGenerator, TokenGenerator>();
 
